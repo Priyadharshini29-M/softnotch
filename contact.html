@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Tech That Works, With a Vibe</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Color Palette */
+        :root {
+            --techvibe-primary: #07DB9C;
+            --techvibe-secondary: #202040;
+            --techvibe-accent: #0E59CB;
+            --techvibe-dark: #121230;
+            --techvibe-light: #F8F9FA;
+            --techvibe-text: #333333;
+            --techvibe-border: #E1E1E1;
+            --techvibe-white: #FFFFFF;
+        }
+
+        /* Base Styles */
+        .techvibe-body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--techvibe-text);
+            background-color: var(--techvibe-light);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation */
+        .techvibe-navbar {
+            background-color: var(--techvibe-white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .techvibe-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--techvibe-primary);
+        }
+
+        .techvibe-nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .techvibe-nav-links a {
+            text-decoration: none;
+            color: var(--techvibe-secondary);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .techvibe-nav-links a:hover {
+            color: var(--techvibe-primary);
+        }
+
+        .techvibe-nav-links .techvibe-active {
+            color: var(--techvibe-primary);
+            font-weight: 600;
+        }
+
+        .techvibe-mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--techvibe-primary);
+        }
+
+        /* Page Header */
+        .techvibe-page-header {
+            background: linear-gradient(135deg, var(--techvibe-secondary), var(--techvibe-dark));
+            color: var(--techvibe-white);
+            text-align: center;
+            padding: 5rem 2rem;
+        }
+
+        .techvibe-page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .techvibe-page-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Contact Section */
+        .techvibe-contact {
+            padding: 4rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .techvibe-contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .techvibe-contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .techvibe-contact-form {
+            background: var(--techvibe-white);
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .techvibe-contact-form h2 {
+            color: var(--techvibe-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .techvibe-form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .techvibe-form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--techvibe-secondary);
+        }
+
+        .techvibe-form-group input,
+        .techvibe-form-group select,
+        .techvibe-form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--techvibe-border);
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .techvibe-form-group input:focus,
+        .techvibe-form-group select:focus,
+        .techvibe-form-group textarea:focus {
+            outline: none;
+            border-color: var(--techvibe-primary);
+        }
+
+        .techvibe-form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .techvibe-btn {
+            background: linear-gradient(to right, var(--techvibe-primary), var(--techvibe-accent));
+            color: var(--techvibe-white);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .techvibe-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(7, 219, 156, 0.3);
+        }
+
+        /* Contact Info */
+        .techvibe-contact-info {
+            background: var(--techvibe-white);
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .techvibe-contact-info h2 {
+            color: var(--techvibe-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .techvibe-info-item {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .techvibe-info-icon {
+            background: linear-gradient(to right, var(--techvibe-primary), var(--techvibe-accent));
+            color: var(--techvibe-white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .techvibe-info-content h3 {
+            margin: 0 0 0.5rem;
+            color: var(--techvibe-secondary);
+        }
+
+        .techvibe-info-content p {
+            margin: 0.3rem 0;
+            color: var(--techvibe-text);
+        }
+
+        /* Social Links */
+        .techvibe-contact-social {
+            margin-top: 3rem;
+        }
+
+        .techvibe-contact-social h3 {
+            margin-bottom: 1rem;
+            color: var(--techvibe-secondary);
+        }
+
+        .techvibe-social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .techvibe-social-links a {
+            color: var(--techvibe-primary);
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .techvibe-social-links a:hover {
+            color: var(--techvibe-accent);
+        }
+
+        /* FAQ Section */
+        .techvibe-faq {
+            padding: 4rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .techvibe-section-title {
+            text-align: center;
+            color: var(--techvibe-secondary);
+            margin-bottom: 3rem;
+            font-size: 2rem;
+        }
+
+        .techvibe-faq-item {
+            border-bottom: 1px solid var(--techvibe-border);
+            margin-bottom: 1rem;
+        }
+
+        .techvibe-faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            cursor: pointer;
+        }
+
+        .techvibe-faq-question h3 {
+            margin: 0;
+            color: var(--techvibe-secondary);
+            font-size: 1.2rem;
+        }
+
+        .techvibe-faq-question i {
+            color: var(--techvibe-primary);
+            transition: transform 0.3s;
+        }
+
+        .techvibe-faq-answer {
+            padding-bottom: 1.5rem;
+            display: none;
+        }
+
+        .techvibe-faq-answer p {
+            margin: 0;
+            color: var(--techvibe-text);
+        }
+
+        .techvibe-faq-item.active .techvibe-faq-question i {
+            transform: rotate(45deg);
+        }
+
+        .techvibe-faq-item.active .techvibe-faq-answer {
+            display: block;
+        }
+
+        /* CTA Section */
+        .techvibe-cta-section {
+            background: linear-gradient(135deg, var(--techvibe-secondary), var(--techvibe-dark));
+            color: var(--techvibe-white);
+            text-align: center;
+            padding: 4rem 2rem;
+            margin-top: 3rem;
+        }
+
+        .techvibe-cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .techvibe-cta-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .techvibe-cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        .techvibe-footer {
+            background-color: var(--techvibe-secondary);
+            color: var(--techvibe-white);
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .techvibe-footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .techvibe-footer-links a {
+            color: var(--techvibe-white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .techvibe-footer-links a:hover {
+            color: var(--techvibe-primary);
+        }
+
+        .techvibe-copyright {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .techvibe-nav-links {
+                display: none;
+            }
+
+            .techvibe-mobile-menu-btn {
+                display: block;
+            }
+
+            .techvibe-page-header h1 {
+                font-size: 2rem;
+            }
+
+            .techvibe-page-header p {
+                font-size: 1rem;
+            }
+
+            .techvibe-footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="techvibe-body">
+    <nav class="techvibe-navbar">
+        <div class="techvibe-logo">TechVibe</div>
+        <div class="techvibe-nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="service.html">Services</a>
+            <a href="products.html">Products</a>
+            <a href="case-studies.html">Case Studies</a>
+            <a href="contact.html" class="techvibe-active">Contact</a>
+        </div>
+        <div class="techvibe-mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <section class="techvibe-page-header">
+        <h1>Let's Build Something Brilliant</h1>
+        <p>Get in touch to discuss your project</p>
+    </section>
+
+    <section class="techvibe-contact">
+        <div class="techvibe-contact-container">
+            <div class="techvibe-contact-form">
+                <h2>Send Us a Message</h2>
+                <form id="contactForm">
+                    <div class="techvibe-form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="techvibe-form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="techvibe-form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="techvibe-form-group">
+                        <label for="service">Service Interest</label>
+                        <select id="service" name="service">
+                            <option value="">Select a service</option>
+                            <option value="web">Website Development</option>
+                            <option value="ecommerce">eCommerce Development</option>
+                            <option value="mobile">Mobile App Development</option>
+                            <option value="ai">AI & Automation</option>
+                            <option value="plugin">Plugin Development</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="techvibe-form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="techvibe-btn">Send Message <i class="fas fa-arrow-right"></i></button>
+                </form>
+            </div>
+            <div class="techvibe-contact-info">
+                <h2>Contact Information</h2>
+                <div class="techvibe-info-item">
+                    <div class="techvibe-info-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="techvibe-info-content">
+                        <h3>Email</h3>
+                        <p>hello@techvibe.com</p>
+                        <p>support@techvibe.com</p>
+                    </div>
+                </div>
+                <div class="techvibe-info-item">
+                    <div class="techvibe-info-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="techvibe-info-content">
+                        <h3>Phone</h3>
+                        <p>+1 (123) 456-7890</p>
+                        <p>Mon-Fri, 9am-5pm PST</p>
+                    </div>
+                </div>
+                <div class="techvibe-info-item">
+                    <div class="techvibe-info-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="techvibe-info-content">
+                        <h3>Location</h3>
+                        <p>123 Tech Street</p>
+                        <p>San Francisco, CA 94107</p>
+                    </div>
+                </div>
+                <div class="techvibe-contact-social">
+                    <h3>Follow Us</h3>
+                    <div class="techvibe-social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="techvibe-faq">
+        <h2 class="techvibe-section-title">Frequently Asked Questions</h2>
+        
+        <div class="techvibe-faq-item">
+            <div class="techvibe-faq-question">
+                <h3>What's your typical project timeline?</h3>
+                <i class="fas fa-plus"></i>
+            </div>
+            <div class="techvibe-faq-answer">
+                <p>Project timelines vary based on scope and complexity. A simple website might take 4-6 weeks, while a custom eCommerce platform could take 3-6 months. After our initial consultation, we'll provide a detailed timeline for your specific project.</p>
+            </div>
+        </div>
+        
+        <div class="techvibe-faq-item">
+            <div class="techvibe-faq-question">
+                <h3>Do you work with startups?</h3>
+                <i class="fas fa-plus"></i>
+            </div>
+            <div class="techvibe-faq-answer">
+                <p>Absolutely! We love working with startups and often offer special packages for early-stage companies. We can help you build an MVP, create investor-ready prototypes, or scale your existing technology.</p>
+            </div>
+        </div>
+        
+        <div class="techvibe-faq-item">
+            <div class="techvibe-faq-question">
+                <h3>What's your pricing structure?</h3>
+                <i class="fas fa-plus"></i>
+            </div>
+            <div class="techvibe-faq-answer">
+                <p>We offer both fixed-price projects (for well-defined scopes) and time-and-materials engagements (for more flexible projects). After understanding your requirements, we'll recommend the best approach and provide transparent pricing.</p>
+            </div>
+        </div>
+        
+        <div class="techvibe-faq-item">
+            <div class="techvibe-faq-question">
+                <h3>Do you provide ongoing support?</h3>
+                <i class="fas fa-plus"></i>
+            </div>
+            <div class="techvibe-faq-answer">
+                <p>Yes, we offer various support and maintenance packages. Many clients choose our monthly retainer options that include updates, security monitoring, performance optimization, and priority support.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="techvibe-cta-section">
+        <div class="techvibe-cta-content">
+            <h2>Ready to Get Started?</h2>
+            <p>Schedule a free 30-minute consultation to discuss your project.</p>
+            <a href="#" class="techvibe-btn">Book a Call <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <footer class="techvibe-footer">
+        <div class="techvibe-footer-content">
+            <div class="techvibe-logo">TechVibe</div>
+            <p>Tech That Works, With a Vibe</p>
+            <div class="techvibe-footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Careers</a>
+            </div>
+            <p class="techvibe-copyright">© 2023 TechVibe. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle Functionality
+        document.querySelectorAll('.techvibe-faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                faqItem.classList.toggle('active');
+                
+                // Close other open FAQs
+                document.querySelectorAll('.techvibe-faq-item').forEach(item => {
+                    if (item !== faqItem && item.classList.contains('active')) {
+                        item.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+        // Mobile Menu Toggle (placeholder functionality)
+        document.querySelector('.techvibe-mobile-menu-btn').addEventListener('click', () => {
+            const navLinks = document.querySelector('.techvibe-nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Form Submission (placeholder functionality)
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            e.target.reset();
+        });
+    </script>
+</body>
+</html>

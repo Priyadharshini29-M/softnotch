@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en" data-page="about">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | TechVibe - Digital Innovation</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+:root {
+  --primary-accent: #07DB9C; /* Vibrant teal */
+  --secondary-accent: #0E59CB; /* Deep blue */
+  --dark-bg: #202040; /* Dark navy */
+  --text-primary: #202040;
+  --text-secondary: #5A5A7A;
+  --light-bg: #F8FAFF;
+  --highlight: #0E59CB;
+}
+
+[data-page="about"] {
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.7;
+  color: var(--text-primary);
+  background-color: var(--light-bg);
+  margin: 0;
+  padding: 0;
+}
+
+[data-component="main-navigation"] {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+[data-element="brand-mark"] {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--primary-accent);
+  letter-spacing: -0.05em;
+  text-decoration: none;
+}
+
+[data-component="nav-links"] {
+  display: flex;
+  justify-self: end;
+  gap: 2rem;
+}
+
+[data-element="nav-link"] {
+  color: var(--text-primary);
+  font-weight: 500;
+  padding: 0.5rem 0;
+  position: relative;
+  text-decoration: none;
+}
+
+[data-element="nav-link"].is-active {
+  color: var(--primary-accent);
+  font-weight: 600;
+}
+
+[data-element="nav-link"]::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-accent);
+  transition: width 0.3s ease;
+}
+
+[data-element="nav-link"]:hover::after {
+  width: 100%;
+}
+
+[data-section="page-hero"] {
+  background: linear-gradient(135deg, var(--dark-bg), var(--secondary-accent));
+  color: white;
+  text-align: center;
+  padding: 6rem 2rem;
+}
+
+[data-element="hero-heading"] {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+[data-element="hero-subtext"] {
+  font-size: 1.25rem;
+  max-width: 48rem;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+
+[data-section="company-story"] {
+  padding: 5rem 2rem;
+}
+
+[data-component="about-grid"] {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+[data-element="story-content"] h2 {
+  font-size: 2.25rem;
+  margin-bottom: 1.5rem;
+  color: var(--secondary-accent);
+}
+
+[data-element="story-content"] p {
+  margin-bottom: 1.5rem;
+  color: var(--text-secondary);
+}
+
+[data-element="visual-element"] {
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-element="visual-element"]:hover {
+  transform: scale(1.03) rotate(-1deg);
+}
+
+[data-element="visual-element"] img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+[data-component="achievement-metrics"] {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+[data-element="metric-card"] {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+[data-element="metric-card"]:hover {
+  transform: translateY(-0.5rem);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  border-color: var(--primary-accent);
+}
+
+[data-element="metric-value"] {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--secondary-accent);
+  margin-bottom: 0.5rem;
+}
+
+[data-element="metric-label"] {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+}
+
+[data-section="company-journey"] {
+  background-color: white;
+  padding: 5rem 2rem;
+}
+
+[data-component="journey-container"] {
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+[data-element="section-header"] {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+[data-element="section-title"] {
+  font-size: 2.25rem;
+  margin-bottom: 1rem;
+  color: var(--secondary-accent);
+}
+
+[data-element="section-description"] {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  max-width: 48rem;
+  margin: 0 auto 1.5rem;
+}
+
+[data-component="milestone-timeline"] {
+  position: relative;
+  padding-left: 3rem;
+}
+
+[data-component="milestone-timeline"]::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(to bottom, var(--primary-accent), var(--secondary-accent));
+  border-radius: 2px;
+}
+
+[data-element="milestone-item"] {
+  position: relative;
+  padding: 0 0 3rem 2rem;
+}
+
+[data-element="milestone-item"]::before {
+  content: '';
+  position: absolute;
+  left: -0.375rem;
+  top: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  background-color: var(--primary-accent);
+  border: 4px solid white;
+  box-shadow: 0 0 0 2px var(--primary-accent);
+}
+
+[data-element="milestone-year"] {
+  font-weight: 700;
+  color: var(--secondary-accent);
+  margin-bottom: 0.5rem;
+}
+
+[data-element="milestone-title"] {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--dark-bg);
+}
+
+[data-element="milestone-description"] {
+  color: var(--text-secondary);
+}
+
+[data-section="team-showcase"] {
+  padding: 5rem 2rem;
+  background-color: var(--light-bg);
+}
+
+[data-component="team-container"] {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+[data-component="team-grid"] {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+[data-element="team-member-card"] {
+  background: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+[data-element="team-member-card"]:hover {
+  transform: translateY(-0.5rem);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  border-color: var(--primary-accent);
+}
+
+[data-element="member-portrait"] {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  margin: 0 auto 1.5rem;
+  object-fit: cover;
+  border: 4px solid var(--light-bg);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+[data-element="member-name"] {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--dark-bg);
+}
+
+[data-element="member-role"] {
+  color: var(--secondary-accent);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+[data-element="member-bio"] {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+}
+
+[data-section="action-prompt"] {
+  background: linear-gradient(135deg, var(--dark-bg), var(--secondary-accent));
+  color: white;
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+[data-element="cta-heading"] {
+  font-size: 2.25rem;
+  margin-bottom: 1.5rem;
+}
+
+[data-element="cta-text"] {
+  font-size: 1.125rem;
+  max-width: 48rem;
+  margin: 0 auto 2rem;
+  opacity: 0.9;
+}
+
+[data-element="action-button"] {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--primary-accent);
+  color: white;
+  padding: 0.875rem 1.75rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+}
+
+[data-element="action-button"]:hover {
+  background-color: #06C78A;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+[data-component="page-footer"] {
+  background-color: var(--dark-bg);
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+[data-element="footer-content"] {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+[data-element="footer-links"] {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+[data-element="footer-link"] {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+[data-element="footer-link"]:hover {
+  color: var(--primary-accent);
+}
+
+[data-element="copyright-text"] {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.875rem;
+}
+
+@media (max-width: 768px) {
+  [data-component="about-grid"] {
+    grid-template-columns: 1fr;
+  }
+  
+  [data-component="achievement-metrics"] {
+    grid-template-columns: 1fr;
+  }
+  
+  [data-element="hero-heading"] {
+    font-size: 2.5rem;
+  }
+  
+  [data-component="nav-links"] {
+    display: none;
+  }
+  
+  [data-component="milestone-timeline"] {
+    padding-left: 1.5rem;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+[data-animate="fade-in"] {
+  animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+[data-animate-delay="100"] {
+  animation-delay: 0.1s;
+}
+
+[data-animate-delay="200"] {
+  animation-delay: 0.2s;
+}
+
+[data-animate-delay="300"] {
+  animation-delay: 0.3s;
+}
+    </style>
+</head>
+<body>
+    <nav data-component="main-navigation">
+        <a href="index.html" data-element="brand-mark">TechVibe</a>
+        <div data-component="nav-links">
+            <a href="index.html" data-element="nav-link">Home</a>
+            <a href="about.html" data-element="nav-link" class="is-active">About</a>
+            <a href="service.html" data-element="nav-link">Services</a>
+            <a href="products.html" data-element="nav-link">Products</a>
+            <a href="case-studies.html" data-element="nav-link">Case Studies</a>
+            <a href="contact.html" data-element="nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <section data-section="page-hero" data-animate="fade-in">
+        <h1 data-element="hero-heading">Our Innovation Journey</h1>
+        <p data-element="hero-subtext">Pioneering digital solutions with a vibrant touch since 2015</p>
+    </section>
+
+    <section data-section="company-story">
+        <div data-component="about-grid">
+            <div data-element="story-content" data-animate="fade-in" data-animate-delay="100">
+                <h2>Where Technology Meets Creativity</h2>
+                <p>At TechVibe, we've redefined what it means to be a technology company. Our journey began with a simple idea: technology should be as vibrant and dynamic as the businesses it serves.</p>
+                
+                <p>We combine the reliability of enterprise-grade solutions with the energy and creativity of a design studio. The result? Technology that not only works flawlessly but feels alive and responsive to your needs.</p>
+                
+                <h3>Our Colorful Approach</h3>
+                <p>Just like our signature color palette, we believe technology should be bold yet balanced, vibrant yet professional. Our solutions reflect this philosophy in every interaction.</p>
+                
+                <div data-component="achievement-metrics">
+                    <div data-element="metric-card">
+                        <div data-element="metric-value" id="years-count">0+</div>
+                        <div data-element="metric-label">Years of Excellence</div>
+                    </div>
+                    <div data-element="metric-card">
+                        <div data-element="metric-value" id="clients-count">0+</div>
+                        <div data-element="metric-label">Satisfied Clients</div>
+                    </div>
+                    <div data-element="metric-card">
+                        <div data-element="metric-value" id="projects-count">0+</div>
+                        <div data-element="metric-label">Successful Projects</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div data-element="visual-element" data-animate="fade-in" data-animate-delay="200">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Our creative team at work">
+            </div>
+        </div>
+    </section>
+
+    <section data-section="company-journey">
+        <div data-component="journey-container">
+            <div data-element="section-header" data-animate="fade-in">
+                <h2 data-element="section-title">Our Colorful Timeline</h2>
+                <p data-element="section-description">Key milestones in our vibrant journey of innovation</p>
+            </div>
+
+            <div data-component="milestone-timeline">
+                <div data-element="milestone-item" data-animate="fade-in" data-animate-delay="100">
+                    <div data-element="milestone-year">2015</div>
+                    <h3 data-element="milestone-title">The First Spark</h3>
+                    <p data-element="milestone-description">Founded with a vision to bring vibrant energy to the tech industry through creative solutions.</p>
+                </div>
+
+                <div data-element="milestone-item" data-animate="fade-in" data-animate-delay="150">
+                    <div data-element="milestone-year">2017</div>
+                    <h3 data-element="milestone-title">Colorful Breakthrough</h3>
+                    <p data-element="milestone-description">Launched our first major project that combined technical excellence with stunning design.</p>
+                </div>
+
+                <div data-element="milestone-item" data-animate="fade-in" data-animate-delay="200">
+                    <div data-element="milestone-year">2019</div>
+                    <h3 data-element="milestone-title">Expanding the Palette</h3>
+                    <p data-element="milestone-description">Expanded our service offerings to include AI and advanced analytics solutions.</p>
+                </div>
+
+                <div data-element="milestone-item" data-animate="fade-in" data-animate-delay="250">
+                    <div data-element="milestone-year">2022</div>
+                    <h3 data-element="milestone-title">Vibrant Products</h3>
+                    <p data-element="milestone-description">Introduced our first commercial software products with our signature colorful interface.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section data-section="team-showcase">
+        <div data-component="team-container">
+            <div data-element="section-header" data-animate="fade-in">
+                <h2 data-element="section-title">Our Vibrant Team</h2>
+                <p data-element="section-description">The creative minds behind our colorful solutions</p>
+            </div>
+
+            <div data-component="team-grid">
+                <div data-element="team-member-card" data-animate="fade-in" data-animate-delay="100">
+                    <img data-element="member-portrait" src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah Johnson">
+                    <h3 data-element="member-name">Sarah Johnson</h3>
+                    <p data-element="member-role">Chief Creative Officer</p>
+                    <p data-element="member-bio">Brings artistic vision to our technical solutions, ensuring they're both powerful and beautiful.</p>
+                </div>
+                
+                <div data-element="team-member-card" data-animate="fade-in" data-animate-delay="150">
+                    <img data-element="member-portrait" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen">
+                    <h3 data-element="member-name">Michael Chen</h3>
+                    <p data-element="member-role">Technology Director</p>
+                    <p data-element="member-bio">Ensures our vibrant designs are built on rock-solid technical foundations.</p>
+                </div>
+                
+                <div data-element="team-member-card" data-animate="fade-in" data-animate-delay="200">
+                    <img data-element="member-portrait" src="https://randomuser.me/api/portraits/women/65.jpg" alt="Priya Patel">
+                    <h3 data-element="member-name">Priya Patel</h3>
+                    <p data-element="member-role">Design Lead</p>
+                    <p data-element="member-bio">Creates the colorful interfaces that make our solutions stand out from the crowd.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section data-section="action-prompt" data-animate="fade-in">
+        <h2 data-element="cta-heading">Ready to Add Some Color to Your Business?</h2>
+        <p data-element="cta-text">Let's create technology solutions that are as vibrant as your ambitions.</p>
+        <a href="contact.html" data-element="action-button">Start Your Colorful Journey →</a>
+    </section>
+
+    <footer data-component="page-footer">
+        <div data-element="footer-content">
+            <div data-element="footer-links">
+                <a href="privacy.html" data-element="footer-link">Privacy</a>
+                <a href="terms.html" data-element="footer-link">Terms</a>
+                <a href="careers.html" data-element="footer-link">Careers</a>
+                <a href="blog.html" data-element="footer-link">Blog</a>
+            </div>
+            <p data-element="copyright-text">© 2023 TechVibe. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Animated counters
+        function animateCounters() {
+            const yearsCounter = document.getElementById('years-count');
+            const clientsCounter = document.getElementById('clients-count');
+            const projectsCounter = document.getElementById('projects-count');
+            
+            const targetYears = 8;
+            const targetClients = 150;
+            const targetProjects = 300;
+            
+            let years = 0;
+            let clients = 0;
+            let projects = 0;
+            
+            const interval = setInterval(() => {
+                if (years < targetYears) years++;
+                if (clients < targetClients) clients += 3;
+                if (projects < targetProjects) projects += 6;
+                
+                yearsCounter.textContent = years + '+';
+                clientsCounter.textContent = clients + '+';
+                projectsCounter.textContent = projects + '+';
+                
+                if (years >= targetYears && clients >= targetClients && projects >= targetProjects) {
+                    clearInterval(interval);
+                }
+            }, 30);
+        }
+
+        // Intersection Observer for animations
+        function setupAnimations() {
+            const animatedElements = document.querySelectorAll('[data-animate]');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animatedElements.forEach(element => {
+                element.style.opacity = 0;
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                
+                const delay = element.getAttribute('data-animate-delay') || '0';
+                element.style.transitionDelay = `${delay}ms`;
+                
+                observer.observe(element);
+            });
+        }
+
+        // Initialize everything when page loads
+        window.addEventListener('load', () => {
+            animateCounters();
+            setupAnimations();
+        });
+    </script>
+</body>
+</html>

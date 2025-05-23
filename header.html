@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innovative Technology Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a73e8, #0d47a1);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 15px 50px;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 100;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a73e8;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #5f6368;
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #1a73e8;
+            transform: translateY(-2px);
+        }
+        
+        .hero {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .hero p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: white;
+            color: #1a73e8;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn:active {
+            transform: translateY(-2px);
+        }
+        
+        /* 3D Floating Elements */
+        .floating {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            z-index: 0;
+        }
+        
+        .floating:nth-child(1) {
+            width: 150px;
+            height: 150px;
+            top: 10%;
+            left: 5%;
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        .floating:nth-child(2) {
+            width: 100px;
+            height: 100px;
+            top: 60%;
+            left: 10%;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating:nth-child(3) {
+            width: 80px;
+            height: 80px;
+            top: 30%;
+            right: 10%;
+            animation: float 7s ease-in-out infinite;
+        }
+        
+        .floating:nth-child(4) {
+            width: 120px;
+            height: 120px;
+            bottom: 10%;
+            right: 5%;
+            animation: float 9s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(10deg);
+            }
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+        }
+        
+        .content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* New Section Styles */
+        .services {
+            background-color: white;
+            padding: 80px 50px;
+            color: #333;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 32px;
+            font-weight: 700;
+            color: #1a73e8;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-top: 3px solid #1a73e8;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-icon {
+            font-size: 40px;
+            color: #1a73e8;
+            margin-bottom: 20px;
+        }
+
+        .service-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .service-desc {
+            color: #666;
+            line-height: 1.6;
+        }
+        /* About Us Section */
+       /* About Us Section - Split Layout */
+       .about {
+            padding: 80px 50px;
+            background-color: white;
+        }
+
+        .about-container {
+            display: flex;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 50px;
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.03);
+        }
+
+        .about h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #1a73e8;
+        }
+
+        .about h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .about p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            color: #666;
+        }
+
+        .stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #1a73e8;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .about-container {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                order: -1;
+                margin-bottom: 30px;
+            }
+        }
+
+         /* Journey Section */
+         /* Journey Section */
+        .journey {
+            padding: 80px 50px;
+            background-color: #f8f9fa;
+        }
+
+        .journey-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .journey-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .journey-header h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #1a73e8;
+            margin-bottom: 15px;
+        }
+
+        .journey-header p {
+            font-size: 18px;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .journey-timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        /* Timeline line */
+        .journey-timeline::before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: #1a73e8;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            border-radius: 10px;
+        }
+
+        .timeline-item {
+            padding: 20px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            text-align: left;
+        }
+
+        .timeline-content {
+            padding: 0;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .timeline-image {
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .timeline-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .timeline-text {
+            padding: 20px;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: 30px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 30px;
+        }
+
+        /* Timeline dots */
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid #1a73e8;
+            border-radius: 50%;
+            top: 50%;
+            margin-top: -10px;
+            z-index: 2;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            right: -40px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: -40px;
+        }
+
+        .timeline-year {
+            font-weight: 700;
+            color: #1a73e8;
+            margin-bottom: 10px;
+        }
+
+        .timeline-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .timeline-desc {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .timeline-content:hover .timeline-image img {
+            transform: scale(1.1);
+        }
+
+        /* Responsive timeline */
+        @media (max-width: 768px) {
+            .journey-timeline::before {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                margin: 0;
+                text-align: left;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content::before,
+            .timeline-item:nth-child(even) .timeline-content::before {
+                left: -40px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Innovative</div>
+        <div class="nav-links">
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Products</a>
+            <a href="#">Websites</a>
+            <a href="#">Technologies</a>
+            <a href="#">Case Studies</a>
+            <a href="#">Contact</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <!-- 3D Floating Elements -->
+        <div class="floating"></div>
+        <div class="floating"></div>
+        <div class="floating"></div>
+        <div class="floating"></div>
+        
+        <div class="content">
+            <h1>Innovative Technology Solutions</h1>
+            <p>Empowering businesses through cutting-edge technology and strategic innovation</p>
+            <a href="#" class="btn">Learn More</a>
+        </div>
+    </section>
+
+    <section class="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3 class="service-title">Web Development</h3>
+                <p class="service-desc">Custom web solutions tailored to your business needs with the latest technologies.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3 class="service-title">Mobile Apps</h3>
+                <p class="service-desc">iOS and Android applications designed for optimal user experience.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-cloud"></i>
+                </div>
+                <h3 class="service-title">Cloud Solutions</h3>
+                <p class="service-desc">Scalable cloud infrastructure to power your business operations.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3 class="service-title">Data Analytics</h3>
+                <p class="service-desc">Turn your data into actionable insights with our analytics platform.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3 class="service-title">Cyber Security</h3>
+                <p class="service-desc">Comprehensive security solutions to protect your digital assets.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h3 class="service-title">AI Solutions</h3>
+                <p class="service-desc">Implement artificial intelligence to automate and optimize processes.</p>
+            </div>
+        </div> 
+    </section>
+     <!-- about section -->
+     <section class="about">
+        <div class="about-container">
+            <div class="about-content">
+                <h2>About Us</h2>
+                <h3>Leading the industry with innovative technology solutions since 2010</h3>
+                
+                <h3>Our Story</h3>
+                <p>TechVision was founded with a singular mission: to help businesses harness the power of technology to achieve unprecedented growth and efficiency. What began as a small team of passionate innovators has grown into a global technology leader.</p>
+                
+                <p>We believe that technology should be an enabler, not a barrier. Our solutions are designed to be intuitive, powerful, and adaptable to the unique challenges faced by modern businesses.</p>
+                
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number" id="years-count">0+</div>
+                        <div class="stat-label">Years of Excellence</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="clients-count">0+</div>
+                        <div class="stat-label">Global Clients</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="experts-count">0+</div>
+                        <div class="stat-label">Tech Experts</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="about-image">
+                <!-- Replace with your actual image -->
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Our team working together">
+            </div>
+        </div>
+    </section>
+
+    <!-- journey  -->
+    <section class="journey">
+        <div class="journey-container">
+            <div class="journey-header">
+                <h2>Our Journey</h2>
+                <p>Key milestones to our company's evolution</p>
+                <h3>Our Path to Innovation</h3>
+                <p>Since our founding, we've been committed to guiding the foundation of technology and delivering exceptional solutions. Here's a glimpse of how our journey has unfolded over the years.</p>
+            </div>
+
+            <div class="journey-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-image">
+                            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Company founding">
+                        </div>
+                        <div class="timeline-text">
+                            <div class="timeline-year">2010</div>
+                            <h3 class="timeline-title">Company Founded</h3>
+                            <p class="timeline-desc">Our journey began with an early extension to revolutionize technology solutions.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-image">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="First product">
+                        </div>
+                        <div class="timeline-text">
+                            <div class="timeline-year">2012</div>
+                            <h3 class="timeline-title">First Major Product</h3>
+                            <p class="timeline-desc">Launched our flagship product that set new industry standards.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-image">
+                            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Global expansion">
+                        </div>
+                        <div class="timeline-text">
+                            <div class="timeline-year">2015</div>
+                            <h3 class="timeline-title">International Expansion</h3>
+                            <p class="timeline-desc">Expanded our operations to serve clients across three continents.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-image">
+                            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Next-gen tech">
+                        </div>
+                        <div class="timeline-text">
+                            <div class="timeline-year">2020</div>
+                            <h3 class="timeline-title">Next-Gen Technology</h3>
+                            <p class="timeline-desc">Pioneered breakthrough innovations in AI and cloud computing.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        // Enhanced 3D floating effect
+        document.addEventListener('DOMContentLoaded', function() {
+            const floaters = document.querySelectorAll('.floating');
+            
+            floaters.forEach((floater, index) => {
+                // Randomize initial positions slightly
+                floater.style.transform = `translateY(${Math.random() * 20}px) rotate(${Math.random() * 10}deg)`;
+                
+                // Add mouse parallax effect
+                document.addEventListener('mousemove', (e) => {
+                    const x = e.clientX / window.innerWidth;
+                    const y = e.clientY / window.innerHeight;
+                    floater.style.transform = `translate(${x * 10 - 5}px, ${y * 10 - 5}px) rotate(${x * 20}deg)`;
+                });
+            });
+            
+            // Button animation
+            const btn = document.querySelector('.btn');
+            btn.addEventListener('mouseenter', () => {
+                btn.style.transform = 'translateY(-5px)';
+                btn.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.3)';
+            });
+            
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'translateY(0)';
+                btn.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.2)';
+            });
+
+            // Service card animations
+            const serviceCards = document.querySelectorAll('.service-card');
+            serviceCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-10px)';
+                    card.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.2)';
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0)';
+                    card.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+                });
+            });
+        });
+
+        // about us
+         // Number counting animation
+         function animateCount(element, target, duration = 2000) {
+            const start = 0;
+            const increment = target / (duration / 16);
+            let current = start;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    clearInterval(timer);
+                    current = target;
+                }
+                element.textContent = Math.floor(current) + "+";
+            }, 16);
+        }
+
+        // Intersection Observer for counting animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCount(document.getElementById('years-count'), 13);
+                    animateCount(document.getElementById('clients-count'), 500);
+                    animateCount(document.getElementById('experts-count'), 120);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(document.querySelector('.about'));
+
+        // journey
+         // Animation for timeline items
+         document.addEventListener('DOMContentLoaded', function() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            timelineItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = index % 2 === 0 ? 'translateX(-30px)' : 'translateX(30px)';
+                item.style.transition = `all 0.5s ease ${index * 0.2}s`;
+                observer.observe(item);
+            });
+        });
+    </script>
+</body>
+</html>

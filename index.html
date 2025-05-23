@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechVibe | Professional IT service</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0e59cb;
+            --primary-light: #3a7bff;
+            --secondary: #07db9c;
+            --secondary-light: #4df0c0;
+            --dark: #202040;
+            --dark-light: #3a3a5a;
+            --light: #f8f9fa;
+            --white: #ffffff;
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.16);
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --border-radius: 12px;
+            --section-spacing: 100px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--white);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.25rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            color: var(--dark-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        /* 3D Floating Background Elements */
+        .three-d-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            opacity: 0.08;
+            filter: blur(80px);
+            transform-style: preserve-3d;
+            will-change: transform;
+            animation: float3d 30s infinite ease-in-out;
+        }
+
+        @keyframes float3d {
+            0%, 100% {
+                transform: translate3d(0, 0, 0) rotateX(0) rotateY(0);
+            }
+            25% {
+                transform: translate3d(5%, 5%, 100px) rotateX(20deg) rotateY(30deg);
+            }
+            50% {
+                transform: translate3d(-5%, 7%, -100px) rotateX(40deg) rotateY(60deg);
+            }
+            75% {
+                transform: translate3d(-8%, -5%, 150px) rotateX(60deg) rotateY(90deg);
+            }
+        }
+
+        /* Floating Elements Positions */
+        .floating-element:nth-child(1) {
+            width: 600px;
+            height: 600px;
+            top: 10%;
+            left: 5%;
+            animation-duration: 35s;
+        }
+
+        .floating-element:nth-child(2) {
+            width: 400px;
+            height: 400px;
+            bottom: 10%;
+            right: 5%;
+            animation-duration: 40s;
+            animation-delay: 5s;
+        }
+
+        .floating-element:nth-child(3) {
+            width: 500px;
+            height: 500px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-duration: 45s;
+            animation-delay: 10s;
+        }
+
+        .floating-element:nth-child(4) {
+            width: 300px;
+            height: 300px;
+            top: 70%;
+            left: 30%;
+            animation-duration: 50s;
+            animation-delay: 15s;
+        }
+
+        /* Content Container */
+        .content-container {
+            position: relative;
+            z-index: 1;
+            background-color: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(2px);
+        }
+
+        /* Navigation */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            padding: 1rem 5%;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--dark);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 5% 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-image {
+            width: 45%;
+            max-width: 600px;
+            position: relative;
+            z-index: 2;
+            perspective: 1000px;
+        }
+
+        .image-wrapper {
+            position: relative;
+            transform-style: preserve-3d;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            z-index: 2;
+            transform: translateZ(20px);
+        }
+
+        .floating-dots {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, var(--primary-light) 0%, rgba(255,255,255,0) 70%);
+            opacity: 0.4;
+            border-radius: 50%;
+            animation: float-dots 8s ease-in-out infinite;
+            z-index: 1;
+            top: -30px;
+            left: -30px;
+        }
+
+        .floating-dots-2 {
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, var(--secondary-light) 0%, rgba(255,255,255,0) 70%);
+            animation-delay: 2s;
+            animation-duration: 10s;
+            bottom: -30px;
+            right: -20px;
+            top: auto;
+            left: auto;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotateY(-5deg) rotateX(5deg);
+            }
+            50% {
+                transform: translateY(-20px) rotateY(5deg) rotateX(-5deg);
+            }
+        }
+
+        @keyframes float-dots {
+            0%, 100% {
+                transform: translate(0, 0);
+            }
+            25% {
+                transform: translate(20px, 20px);
+            }
+            50% {
+                transform: translate(-10px, 30px);
+            }
+            75% {
+                transform: translate(30px, -10px);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        .hero .subhead {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: 2rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            color: var(--dark-light);
+            max-width: 600px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.875rem 2rem;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-light), var(--secondary-light));
+            z-index: -1;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover::before {
+            opacity: 1;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        /* Sections */
+        section {
+            padding: var(--section-spacing) 5%;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            color: var(--dark-light);
+            font-size: 1.125rem;
+        }
+
+        /* service */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(14, 89, 203, 0.1) 0%, rgba(7, 219, 156, 0.1) 100%);
+            border-radius: 16px;
+            color: var(--primary);
+            font-size: 1.75rem;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-icon {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+            transform: rotateY(180deg);
+        }
+
+        .service-title {
+            font-size: 1.375rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .service-desc {
+            color: var(--dark-light);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        /* Case Study */
+        .case-study-preview {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-light) 100%);
+            color: var(--white);
+        }
+
+        .case-study-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .case-study-image {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transform: perspective(1000px) rotateY(-10deg) rotateX(5deg);
+            transition: var(--transition);
+        }
+
+        .case-study-image:hover {
+            transform: perspective(1000px) rotateY(-5deg) rotateX(3deg);
+        }
+
+        .case-study-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .case-study-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--secondary), var(--white));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+        }
+
+        .case-study-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+        }
+
+        .case-study-results {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 2.5rem 0;
+        }
+
+        .result-item {
+            text-align: center;
+        }
+
+        .result-number {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .result-label {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Products */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            position: relative;
+            text-align: center;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .product-image {
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(14, 89, 203, 0.05) 0%, rgba(7, 219, 156, 0.05) 100%);
+            transition: var(--transition);
+        }
+
+        .product-card:hover .product-image {
+            background: linear-gradient(135deg, rgba(14, 89, 203, 0.1) 0%, rgba(7, 219, 156, 0.1) 100%);
+        }
+
+        .product-content {
+            padding: 2rem;
+        }
+
+        .product-title {
+            font-size: 1.375rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .product-desc {
+            color: var(--dark-light);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 6rem 5%;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .cta-section .btn {
+            background: var(--white);
+            color: var(--primary);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-section .btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: var(--white);
+            padding: 5rem 5% 2rem;
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-col h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+            position: relative;
+            padding-bottom: 0.75rem;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--secondary);
+        }
+
+        .footer-col p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-col ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 3rem;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.875rem;
+        }
+
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .case-study-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .case-study-image {
+                max-width: 600px;
+                margin: 0 auto;
+                order: -1;
+            }
+
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-content {
+                max-width: 100%;
+                margin-bottom: 3rem;
+            }
+
+            .hero-image {
+                width: 80%;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --section-spacing: 80px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.75rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .case-study-results {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .hero-image {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            :root {
+                --section-spacing: 60px;
+            }
+            
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+            
+            .hero .subhead {
+                font-size: 1.1rem;
+            }
+            
+            .btn {
+                padding: 0.75rem 1.5rem;
+            }
+
+            .btn-group {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 3D Background Elements -->
+    <div class="three-d-background">
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+    </div>
+
+    <!-- Content Container -->
+    <div class="content-container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="logo">TechVibe</div>
+            <div class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="about.html">About</a>
+                <a href="service.html">Services</a>
+                <a href="products.html">Products</a>
+                <a href="case-studies.html">Case Studies</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1>We provide professional IT service</h1>
+                    <p class="subhead">Delivering tech solutions for your startups</p>
+                    <p>We transform businesses of most major sectors with powerful and adaptable digital solutions that satisfy the needs of today.</p>
+                    <div class="btn-group">
+                        <a href="#contact" class="btn btn-primary">Work With Us</a>
+                        <a href="#service" class="btn btn-outline">View service</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="TechVibe service">
+                        <div class="floating-dots"></div>
+                        <div class="floating-dots floating-dots-2"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- service Preview -->
+        <section class="service-preview">
+            <h2 class="section-title">Technology That Solves. Systems That Scale.</h2>
+            <p class="section-subtitle">Our service are designed to remove bottlenecks, enhance customer experience, and empower brands to scale—without the stress.</p>
+            
+            <div class="service-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="service-title">Website Development</h3>
+                    <p class="service-desc">Responsive, lightning-fast, SEO-friendly websites that feel as good as they look.</p>
+                    <a href="service.html#webdev" class="btn btn-outline">Learn More</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3 class="service-title">eCommerce Development</h3>
+                    <p class="service-desc">Custom online stores strategically optimized for sales and growth.</p>
+                    <a href="service.html#ecommerce" class="btn btn-outline">Learn More</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="service-title">AI & Automation</h3>
+                    <p class="service-desc">Ecosystems that make your business smarter and more efficient.</p>
+                    <a href="service.html#ai" class="btn btn-outline">Learn More</a>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="service.html" class="btn btn-primary">View All service</a>
+            </div>
+        </section>
+
+        <!-- Case Study Preview -->
+        <section class="case-study-preview">
+            <div class="case-study-container">
+                <div class="case-study-content">
+                    <h3 class="case-study-title">How We Helped a DTC Brand 5x Their Conversion Rate</h3>
+                    <p class="case-study-subtitle">Direct-to-consumer fashion brand with lagging WooCommerce store</p>
+                    <p class="text-center">We optimized UX, integrated a multilingual AI chatbot, improved load speed, and enabled custom plug-ins.</p>
+                    
+                    <div class="case-study-results">
+                        <div class="result-item">
+                            <div class="result-number">230%</div>
+                            <div class="result-label">Revenue Increase</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-number">42%</div>
+                            <div class="result-label">Lower Bounce Rates</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-number">5x</div>
+                            <div class="result-label">Higher Checkouts</div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <a href="case-studies.html" class="btn btn-primary">View Case Study</a>
+                    </div>
+                </div>
+                <div class="case-study-image">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="eCommerce Dashboard">
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Preview -->
+        <section class="products-preview">
+            <h2 class="section-title">From Code to Creation</h2>
+            <p class="section-subtitle">Our homegrown tech products designed to fill market gaps</p>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image" style="background: #f0f7ff;">
+                        <i class="fas fa-robot" style="font-size: 80px; color: #1a73e8;"></i>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">AI Chatbots</h3>
+                        <p class="product-desc">24/7 real-time support and product recommendations that adapt to your brand.</p>
+                        <a href="products.html#chatbots" class="btn btn-outline">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image" style="background: #fff0f6;">
+                        <i class="fas fa-chart-pie" style="font-size: 80px; color: #1a73e8;"></i>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Campaign Intelligence</h3>
+                        <p class="product-desc">Unified insights from Meta and Google Ads in one dashboard.</p>
+                        <a href="products.html#analytics" class="btn btn-outline">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="products.html" class="btn btn-primary">View All Products</a>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Digital Presence?</h2>
+                <p>Let's discuss how we can help your business grow with technology that works.</p>
+                <a href="contact.html" class="btn">Get Started Today</a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>TechVibe</h3>
+                    <p>Building bold tech for brands that mean business. Smart code, sleek design, real results.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>service</h3>
+                    <ul>
+                        <li><a href="service.html#webdev">Website Development</a></li>
+                        <li><a href="service.html#ecommerce">eCommerce Solutions</a></li>
+                        <li><a href="service.html#mobile">Mobile App Development</a></li>
+                        <li><a href="service.html#ai">AI & Automation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Products</h3>
+                    <ul>
+                        <li><a href="products.html#chatbots">AI Chatbots</a></li>
+                        <li><a href="products.html#analytics">Campaign Analytics</a></li>
+                        <li><a href="products.html#shopify">Shopify Apps</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> hello@techvibe.com</li>
+                        <li><i class="fas fa-phone"></i> (123) 456-7890</li>
+                        <li><i class="fas fa-map-marker-alt"></i> San Francisco, CA</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 TechVibe. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </footer>
+    </div>
+<script src="/main.js"></script>
+</body>
+</html>

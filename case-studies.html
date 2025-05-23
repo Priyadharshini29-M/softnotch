@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Studies | Tech That Works, With a Vibe</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Base Styles */
+        :root {
+            --primary: #07db9c;
+            --primary-dark: #06b786;
+            --secondary: #0e59cb;
+            --dark: #202040;
+            --light: #f5f6fa;
+            --accent: #fd79a8;
+            --gray: #636e72;
+            --light-gray: #dfe6e9;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -1px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .nav-links a.active:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            padding: 5rem 5% 3rem;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+            position: relative;
+            z-index: 2;
+            font-weight: 800;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .page-header:before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+            opacity: 0.1;
+            z-index: 1;
+        }
+        
+        .page-header:after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--secondary) 0%, transparent 70%);
+            opacity: 0.1;
+            z-index: 1;
+        }
+        
+        /* Case Studies Section */
+        .case-studies {
+            padding: 4rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .case-filters {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .filter-btn {
+            padding: 0.8rem 1.5rem;
+            background: white;
+            border-radius: 50px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--light-gray);
+        }
+        
+        .filter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: 0 4px 15px rgba(7, 219, 156, 0.3);
+        }
+        
+        .case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .case-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+            position: relative;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        
+        .case-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+        
+        .case-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+        
+        .case-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .case-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .case-card:hover .case-image img {
+            transform: scale(1.05);
+        }
+        
+        .case-content {
+            padding: 1.5rem;
+        }
+        
+        .case-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .case-subtitle {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+        
+        .case-excerpt {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .case-stats {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .stat {
+            flex: 1;
+            text-align: center;
+            padding: 0.8rem;
+            background: rgba(7, 219, 156, 0.05);
+            border-radius: 8px;
+            border: 1px solid rgba(7, 219, 156, 0.1);
+        }
+        
+        .number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.2rem;
+        }
+        
+        .label {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+        
+        .case-link {
+            display: inline-block;
+            color: var(--primary);
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+        
+        .case-link:hover {
+            color: var(--primary-dark);
+            transform: translateX(5px);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 5rem 5%;
+            text-align: center;
+            margin-top: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section:before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+        }
+        
+        .cta-section:after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-content p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: white;
+            color: var(--primary);
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 5%;
+            text-align: center;
+        }
+        
+        /* 3D Effects */
+        .case-card {
+            transform-style: preserve-3d;
+            transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+        
+        .case-card:hover {
+            transform: perspective(1000px) rotateY(-5deg) rotateX(2deg) translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 
+                        0 0 50px rgba(7, 219, 156, 0.1);
+        }
+        
+        .case-card:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(7, 219, 156, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+        }
+        
+        .case-card:hover:after {
+            opacity: 1;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .case-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-content h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">TechVibe</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="service.html">Services</a>
+            <a href="products.html">Products</a>
+            <a href="case-studies.html" class="active">Case Studies</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <h1>Case Studies</h1>
+        <p>Real problems solved with technology that works</p>
+    </section>
+
+    <section class="case-studies">
+        <div class="case-filters">
+            <div class="filter-btn active" data-filter="all">All</div>
+            <div class="filter-btn" data-filter="ecommerce">eCommerce</div>
+            <div class="filter-btn" data-filter="web">Web Development</div>
+            <div class="filter-btn" data-filter="mobile">Mobile Apps</div>
+            <div class="filter-btn" data-filter="ai">AI Solutions</div>
+        </div>
+
+        <div class="case-grid">
+            <div class="case-card" data-category="ecommerce">
+                <div class="case-image">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Fashion eCommerce">
+                </div>
+                <div class="case-content">
+                    <h3>DTC Fashion Brand</h3>
+                    <p class="case-subtitle">5x Conversion Rate Increase</p>
+                    <p class="case-excerpt">Transformed a lagging WooCommerce store into a high-converting sales machine through UX optimization and AI chatbot integration.</p>
+                    <div class="case-stats">
+                        <div class="stat">
+                            <div class="number">230%</div>
+                            <div class="label">Revenue Increase</div>
+                        </div>
+                        <div class="stat">
+                            <div class="number">5x</div>
+                            <div class="label">More Checkouts</div>
+                        </div>
+                    </div>
+                    <a href="#" class="case-link">Read Full Story →</a>
+                </div>
+            </div>
+
+            <div class="case-card" data-category="web">
+                <div class="case-image">
+                    <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Law Firm Website">
+                </div>
+                <div class="case-content">
+                    <h3>Law Firm Website</h3>
+                    <p class="case-subtitle">70% More Inbound Leads</p>
+                    <p class="case-excerpt">Modernized an outdated website with improved mobile responsiveness and trust-building elements.</p>
+                    <div class="case-stats">
+                        <div class="stat">
+                            <div class="number">70%</div>
+                            <div class="label">Lead Increase</div>
+                        </div>
+                        <div class="stat">
+                            <div class="number">45%</div>
+                            <div class="label">Faster Load Time</div>
+                        </div>
+                    </div>
+                    <a href="#" class="case-link">Read Full Story →</a>
+                </div>
+            </div>
+
+            <div class="case-card" data-category="mobile">
+                <div class="case-image">
+                    <img src="https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Education App">
+                </div>
+                <div class="case-content">
+                    <h3>Education Startup</h3>
+                    <p class="case-subtitle">12,000 Active Users</p>
+                    <p class="case-excerpt">Developed a cross-platform tutoring app with real-time whiteboard functionality and messaging.</p>
+                    <div class="case-stats">
+                        <div class="stat">
+                            <div class="number">24x</div>
+                            <div class="label">User Growth</div>
+                        </div>
+                        <div class="stat">
+                            <div class="number">4.8</div>
+                            <div class="label">App Rating</div>
+                        </div>
+                    </div>
+                    <a href="#" class="case-link">Read Full Story →</a>
+                </div>
+            </div>
+
+            <div class="case-card" data-category="ai ecommerce">
+                <div class="case-image">
+                    <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Wellness Brand">
+                </div>
+                <div class="case-content">
+                    <h3>Wellness Brand</h3>
+                    <p class="case-subtitle">300% Revenue Growth</p>
+                    <p class="case-excerpt">Rebuilt Shopify experience with subscription automation and smart upsell plugins.</p>
+                    <div class="case-stats">
+                        <div class="stat">
+                            <div class="number">300%</div>
+                            <div class="label">Revenue Growth</div>
+                        </div>
+                        <div class="stat">
+                            <div class="number">34%</div>
+                            <div class="label">Higher AOV</div>
+                        </div>
+                    </div>
+                    <a href="#" class="case-link">Read Full Story →</a>
+                </div>
+            </div>
+
+            <div class="case-card" data-category="ai">
+                <div class="case-image">
+                    <img src="https://images.unsplash.com/photo-1677442135136-760c813cd9d6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Logistics AI">
+                </div>
+                <div class="case-content">
+                    <h3>Logistics Company</h3>
+                    <p class="case-subtitle">60 Hours Saved Monthly</p>
+                    <p class="case-excerpt">Automated quote generation system with AI-powered pricing recommendations.</p>
+                    <div class="case-stats">
+                        <div class="stat">
+                            <div class="number">60</div>
+                            <div class="label">Hours Saved</div>
+                        </div>
+                        <div class="stat">
+                            <div class="number">15%</div>
+                            <div class="label">More Quotes</div>
+                        </div>
+                    </div>
+                    <a href="#" class="case-link">Read Full Story →</a>
+                </div>
+            </div>
+
+            <div class="case-card" data-category="ecommerce">
+                <div class="case-image">
+                    <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Print Shop">
+                </div>
+                <div class="case-content">
+                    <h3>Print-on-Demand Shop</h3>
+                    <p class="case-subtitle">Double Order Volume</p>
+                    <p class="case-excerpt">Custom price calculator and bulk order plugin developed in just 2 weeks.</p>
+                    <div class="case-stats">
+                        <div class="stat">
+                            <div class="number">2x</div>
+                            <div class="label">Order Volume</div>
+                        </div>
+                        <div class="stat">
+                            <div class="number">2</div>
+                            <div class="label">Weeks Development</div>
+                        </div>
+                    </div>
+                    <a href="#" class="case-link">Read Full Story →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready for Similar Results?</h2>
+            <p>Let's discuss how we can help your business achieve its goals.</p>
+            <a href="contact.html" class="btn">Get Started →</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="logo">TechVibe</div>
+            <p>Tech That Works, With a Vibe</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+            <p class="copyright">© 2023 TechVibe. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Filter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const caseCards = document.querySelectorAll('.case-card');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    
+                    caseCards.forEach(card => {
+                        if (filter === 'all' || card.getAttribute('data-category').includes(filter)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // 3D tilt effect
+            caseCards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const angleX = (y - centerY) / 20;
+                    const angleY = (centerX - x) / 20;
+                    
+                    card.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) translateY(-10px)`;
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(-10px)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
