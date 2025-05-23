@@ -1,0 +1,2002 @@
+<!DOCTYPE html>
+<html lang="en" data-page="services">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | TechVibe - Digital Innovation</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        /* General Styles */
+:root {
+  --primary-accent: #07DB9C;
+  --secondary-accent: #0E59CB;
+  --dark-bg: #202040;
+  --text-primary: #202040;
+  --text-secondary: #5A5A7A;
+  --light-bg: #F8FAFF;
+  --white: #FFFFFF;
+  --light-gray: #F5F7FA;
+}
+
+[data-page="services"] {
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.7;
+  color: var(--text-primary);
+  background-color: var(--light-bg);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  perspective: 1000px;
+}
+
+/* Parallax Base Styles */
+.parallax-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.parallax-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  will-change: transform;
+  z-index: -1;
+}
+
+/* 3D Card Effects */
+[data-element="feature-card"],
+[data-element="process-card"],
+[data-element="ai-card"],
+[data-element="plugin-card"],
+[data-element="option-card"] {
+  transform-style: preserve-3d;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateZ(0);
+}
+
+[data-element="feature-card"]:hover,
+[data-element="process-card"]:hover,
+[data-element="ai-card"]:hover,
+[data-element="plugin-card"]:hover,
+[data-element="option-card"]:hover {
+  transform: translateY(-10px) translateZ(20px) rotateX(2deg) rotateY(2deg);
+  box-shadow: 0 30px 50px -20px rgba(0, 0, 0, 0.2);
+}
+
+/* Floating Elements */
+.floating {
+  animation: floating 6s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(2deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+/* Navigation */
+[data-component="main-navigation"] {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background-color: var(--white);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+[data-element="brand-mark"] {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--primary-accent);
+  letter-spacing: -0.05em;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+[data-element="brand-mark"]:hover {
+  text-shadow: 0 0 10px rgba(7, 219, 156, 0.3);
+}
+
+[data-component="nav-links"] {
+  display: flex;
+  justify-self: end;
+  gap: 2rem;
+}
+
+[data-element="nav-link"] {
+  color: var(--text-primary);
+  font-weight: 500;
+  padding: 0.5rem 0;
+  position: relative;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+[data-element="nav-link"].is-active {
+  color: var(--primary-accent);
+  font-weight: 600;
+}
+
+[data-element="nav-link"]::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-accent);
+  transition: width 0.3s ease;
+}
+
+[data-element="nav-link"]:hover::after {
+  width: 100%;
+}
+
+[data-element="mobile-menu-toggle"] {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Hero Section with Parallax */
+[data-section="page-hero"] {
+  background: linear-gradient(135deg, var(--dark-bg), var(--secondary-accent));
+  color: var(--white);
+  text-align: center;
+  padding: 8rem 2rem 6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+[data-section="page-hero"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+  z-index: 0;
+  opacity: 0.5;
+}
+
+[data-element="hero-heading"] {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transform: translateZ(20px);
+}
+
+[data-element="hero-subtext"] {
+  font-size: 1.25rem;
+  max-width: 48rem;
+  margin: 0 auto;
+  opacity: 0.9;
+  position: relative;
+  z-index: 1;
+  transform: translateZ(10px);
+}
+
+/* Floating Circles Background */
+.floating-circles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.floating-circles li {
+  position: absolute;
+  display: block;
+  list-style: none;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  animation: float 25s linear infinite;
+  bottom: -150px;
+}
+
+.floating-circles li:nth-child(1) {
+  left: 25%;
+  width: 80px;
+  height: 80px;
+  animation-delay: 0s;
+}
+
+.floating-circles li:nth-child(2) {
+  left: 10%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 2s;
+  animation-duration: 12s;
+}
+
+.floating-circles li:nth-child(3) {
+  left: 70%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 4s;
+}
+
+.floating-circles li:nth-child(4) {
+  left: 40%;
+  width: 60px;
+  height: 60px;
+  animation-delay: 0s;
+  animation-duration: 18s;
+}
+
+.floating-circles li:nth-child(5) {
+  left: 65%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 0s;
+}
+
+.floating-circles li:nth-child(6) {
+  left: 75%;
+  width: 110px;
+  height: 110px;
+  animation-delay: 3s;
+}
+
+.floating-circles li:nth-child(7) {
+  left: 35%;
+  width: 150px;
+  height: 150px;
+  animation-delay: 7s;
+}
+
+.floating-circles li:nth-child(8) {
+  left: 50%;
+  width: 25px;
+  height: 25px;
+  animation-delay: 15s;
+  animation-duration: 45s;
+}
+
+.floating-circles li:nth-child(9) {
+  left: 20%;
+  width: 15px;
+  height: 15px;
+  animation-delay: 2s;
+  animation-duration: 35s;
+}
+
+.floating-circles li:nth-child(10) {
+  left: 85%;
+  width: 150px;
+  height: 150px;
+  animation-delay: 0s;
+  animation-duration: 11s;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+    border-radius: 0;
+  }
+  100% {
+    transform: translateY(-1000px) rotate(720deg);
+    opacity: 0;
+    border-radius: 50%;
+  }
+}
+
+/* Services Intro */
+[data-section="services-intro"] {
+  padding: 3rem 2rem;
+  text-align: center;
+  background-color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+[data-element="intro-text"] {
+  font-size: 1.125rem;
+  max-width: 60rem;
+  margin: 0 auto;
+  color: var(--text-secondary);
+  position: relative;
+  z-index: 1;
+}
+
+/* Service Category Sections */
+[data-section="service-category"] {
+  padding: 5rem 0;
+  position: relative;
+}
+
+[data-section="service-category"].alt-bg {
+  background-color: var(--white);
+}
+
+[data-component="service-container"] {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+[data-element="service-header"] {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+[data-element="service-icon"] {
+  font-size: 3rem;
+  color: var(--primary-accent);
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  transition: all 0.5s ease;
+}
+
+[data-element="service-icon"]:hover {
+  transform: rotate(15deg) scale(1.1);
+}
+
+[data-element="service-title"] {
+  font-size: 2.25rem;
+  margin-bottom: 1rem;
+  color: var(--dark-bg);
+  position: relative;
+  display: inline-block;
+}
+
+[data-element="service-title"]::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background: var(--primary-accent);
+  border-radius: 3px;
+}
+
+[data-element="service-subtitle"] {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  max-width: 50rem;
+  margin: 0 auto;
+}
+
+[data-component="service-content"] {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+[data-element="service-description"] p {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+/* Feature Grid with 3D Effects */
+[data-component="feature-grid"] {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+[data-element="feature-card"] {
+  background: var(--white);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transform-style: preserve-3d;
+}
+
+[data-element="feature-card"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(7, 219, 156, 0.1), rgba(14, 89, 203, 0.05));
+  border-radius: 0.75rem;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+[data-element="feature-card"]:hover::before {
+  opacity: 1;
+}
+
+[data-element="feature-icon"] {
+  font-size: 2rem;
+  color: var(--primary-accent);
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+[data-element="feature-card"]:hover [data-element="feature-icon"] {
+  transform: scale(1.2);
+}
+
+[data-element="feature-title"] {
+  font-size: 1.125rem;
+  margin-bottom: 0.75rem;
+  color: var(--dark-bg);
+  transition: all 0.3s ease;
+}
+
+[data-element="feature-card"]:hover [data-element="feature-title"] {
+  color: var(--primary-accent);
+}
+
+[data-element="feature-desc"] {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+}
+
+/* Tech Stack */
+[data-component="tech-stack"] {
+  background: var(--white);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+[data-component="tech-stack"]:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+[data-element="stack-title"] {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--dark-bg);
+}
+
+[data-component="tech-list"] {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+[data-element="tech-item"] {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+  transition: all 0.3s ease;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+[data-element="tech-item"]::before {
+  content: '•';
+  color: var(--primary-accent);
+  position: absolute;
+  left: 0;
+}
+
+[data-element="tech-item"]:hover {
+  color: var(--primary-accent);
+  padding-left: 2rem;
+}
+
+/* Success Story */
+[data-element="success-story"] {
+  background: var(--white);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-element="success-story"]:hover {
+  transform: translateY(-5px) rotateX(1deg) rotateY(1deg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+[data-element="story-title"] {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--dark-bg);
+}
+
+[data-element="story-text"] {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+[data-element="case-link"] {
+  color: var(--primary-accent);
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+[data-element="case-link"]:hover {
+  text-decoration: underline;
+  transform: translateX(5px);
+}
+
+/* Platform Tabs */
+[data-component="platform-tabs"] {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+[data-element="platform-tab"] {
+  padding: 0.75rem 1.5rem;
+  background: var(--light-bg);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+[data-element="platform-tab"]:hover {
+  transform: translateY(-3px);
+}
+
+[data-element="platform-tab"].is-active {
+  background: var(--primary-accent);
+  color: var(--white);
+  transform: translateY(-3px) translateZ(10px);
+  box-shadow: 0 5px 15px rgba(7, 219, 156, 0.3);
+}
+
+[data-component="platform-content"] {
+  display: none;
+  animation: fadeIn 0.5s ease;
+}
+
+[data-component="platform-content"].is-active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Feature List */
+[data-component="feature-list"] {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+[data-element="feature-item"] {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  padding: 0.75rem 0;
+  display: flex;
+  align-items: flex-start;
+  transition: all 0.3s ease;
+}
+
+[data-element="feature-item"]:hover {
+  transform: translateX(5px);
+}
+
+[data-element="feature-icon-small"] {
+  color: var(--primary-accent);
+  margin-right: 0.75rem;
+  margin-top: 0.25rem;
+  transition: all 0.3s ease;
+}
+
+[data-element="feature-item"]:hover [data-element="feature-icon-small"] {
+  transform: rotate(15deg) scale(1.2);
+}
+
+/* Option Grid */
+[data-component="option-grid"] {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+[data-element="option-card"] {
+  background: var(--white);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transform-style: preserve-3d;
+}
+
+[data-element="option-card"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(7, 219, 156, 0.1), rgba(14, 89, 203, 0.05));
+  border-radius: 0.75rem;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+[data-element="option-card"]:hover::before {
+  opacity: 1;
+}
+
+[data-element="option-card"].is-active {
+  border-color: var(--primary-accent);
+  box-shadow: 0 5px 15px rgba(7, 219, 156, 0.1);
+  transform: translateY(-5px) translateZ(10px);
+}
+
+[data-element="option-icon"] {
+  font-size: 2rem;
+  color: var(--primary-accent);
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+[data-element="option-card"]:hover [data-element="option-icon"] {
+  transform: scale(1.2);
+}
+
+[data-element="option-title"] {
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+  color: var(--dark-bg);
+}
+
+[data-element="option-desc"] {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+}
+
+/* Plugin Grid */
+[data-component="plugin-grid"] {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+[data-element="plugin-card"] {
+  background: var(--white);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+[data-element="plugin-card"]:hover {
+  transform: translateY(-5px) rotateX(1deg) rotateY(1deg);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+[data-element="plugin-title"] {
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+  color: var(--dark-bg);
+}
+
+[data-component="plugin-list"] {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+[data-element="plugin-item"] {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+  transition: all 0.3s ease;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+[data-element="plugin-item"]::before {
+  content: '•';
+  color: var(--primary-accent);
+  position: absolute;
+  left: 0;
+}
+
+[data-element="plugin-item"]:hover {
+  color: var(--primary-accent);
+  padding-left: 2rem;
+}
+
+/* Process Steps */
+[data-component="process-steps"] {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+[data-element="process-step"] {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  padding: 1rem 0 1rem 2.5rem;
+  position: relative;
+  border-bottom: 1px solid #eee;
+  transition: all 0.3s ease;
+}
+
+[data-element="process-step"]:hover {
+  color: var(--primary-accent);
+  transform: translateX(5px);
+}
+
+[data-element="step-number"] {
+  position: absolute;
+  left: 0;
+  top: 1rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  background: var(--primary-accent);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+[data-element="process-step"]:hover [data-element="step-number"] {
+  transform: scale(1.2);
+}
+
+/* AI Grid */
+[data-component="ai-grid"] {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+[data-element="ai-card"] {
+  background: var(--white);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+[data-element="ai-card"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(7, 219, 156, 0.1), rgba(14, 89, 203, 0.05));
+  border-radius: 0.75rem;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+[data-element="ai-card"]:hover::before {
+  opacity: 1;
+}
+
+[data-element="ai-icon"] {
+  font-size: 2rem;
+  color: var(--primary-accent);
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+[data-element="ai-card"]:hover [data-element="ai-icon"] {
+  transform: scale(1.2);
+}
+
+[data-element="ai-title"] {
+  font-size: 1.125rem;
+  margin-bottom: 0.75rem;
+  color: var(--dark-bg);
+  transition: all 0.3s ease;
+}
+
+[data-element="ai-card"]:hover [data-element="ai-title"] {
+  color: var(--primary-accent);
+}
+
+[data-element="ai-desc"] {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+}
+
+/* Case List */
+[data-component="case-list"] {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+}
+
+[data-element="case-item"] {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #eee;
+  transition: all 0.3s ease;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+[data-element="case-item"]::before {
+  content: '•';
+  color: var(--primary-accent);
+  position: absolute;
+  left: 0;
+}
+
+[data-element="case-item"]:hover {
+  color: var(--primary-accent);
+  padding-left: 2rem;
+}
+
+/* CTA Buttons */
+[data-component="service-cta"] {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+[data-element="primary-btn"] {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--primary-accent);
+  color: var(--white);
+  padding: 0.875rem 1.75rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(7, 219, 156, 0.2);
+  transform-style: preserve-3d;
+  position: relative;
+  overflow: hidden;
+}
+
+[data-element="primary-btn"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: all 0.5s ease;
+}
+
+[data-element="primary-btn"]:hover::before {
+  left: 100%;
+}
+
+[data-element="primary-btn"]:hover {
+  background-color: #06C78A;
+  transform: translateY(-3px) translateZ(5px);
+  box-shadow: 0 10px 20px rgba(7, 219, 156, 0.3);
+}
+
+[data-element="secondary-btn"] {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--white);
+  color: var(--primary-accent);
+  padding: 0.875rem 1.75rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  border: 2px solid var(--primary-accent);
+  transform-style: preserve-3d;
+}
+
+[data-element="secondary-btn"]:hover {
+  background-color: var(--primary-accent);
+  color: var(--white);
+  transform: translateY(-3px) translateZ(5px);
+  box-shadow: 0 10px 20px rgba(7, 219, 156, 0.2);
+}
+
+/* Service Process Section */
+[data-section="service-process"] {
+  padding: 5rem 0;
+  background: var(--white);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+[data-section="service-process"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSg3LCAyMTksIDE1NiwgMC4wNSkiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjcGF0dGVybikiLz48L3N2Zz4=');
+  z-index: 0;
+}
+
+[data-element="section-title"] {
+  font-size: 2.25rem;
+  margin-bottom: 3rem;
+  color: var(--dark-bg);
+  position: relative;
+  z-index: 1;
+}
+
+[data-component="process-grid"] {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1.5rem;
+  max-width: 80rem;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+[data-element="process-card"] {
+  background: var(--light-bg);
+  border-radius: 0.75rem;
+  padding: 2rem 1.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+[data-element="process-card"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(7, 219, 156, 0.1), rgba(14, 89, 203, 0.05));
+  border-radius: 0.75rem;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+[data-element="process-card"]:hover::before {
+  opacity: 1;
+}
+
+[data-element="process-number"] {
+  width: 3rem;
+  height: 3rem;
+  background: var(--primary-accent);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 auto 1.5rem auto;
+  transition: all 0.3s ease;
+}
+
+[data-element="process-card"]:hover [data-element="process-number"] {
+  transform: scale(1.1) rotate(15deg);
+}
+
+[data-element="process-title"] {
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+  color: var(--dark-bg);
+  transition: all 0.3s ease;
+}
+
+[data-element="process-card"]:hover [data-element="process-title"] {
+  color: var(--primary-accent);
+}
+
+[data-element="process-desc"] {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+}
+
+/* Action Prompt Section */
+[data-section="action-prompt"] {
+  background: linear-gradient(135deg, var(--dark-bg), var(--secondary-accent));
+  color: var(--white);
+  padding: 5rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+[data-section="action-prompt"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+  z-index: 0;
+  opacity: 0.5;
+}
+
+[data-element="cta-heading"] {
+  font-size: 2.25rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+[data-element="cta-text"] {
+  font-size: 1.125rem;
+  max-width: 48rem;
+  margin: 0 auto 2rem;
+  opacity: 0.9;
+  position: relative;
+  z-index: 1;
+}
+
+[data-component="cta-buttons"] {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Footer */
+[data-component="page-footer"] {
+  background-color: var(--dark-bg);
+  color: var(--white);
+  padding: 4rem 2rem;
+  text-align: center;
+  position: relative;
+}
+
+[data-element="footer-content"] {
+  max-width: 80rem;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+[data-component="footer-links"] {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+[data-element="footer-link"] {
+  color: var(--white);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+[data-element="footer-link"]:hover {
+  color: var(--primary-accent);
+}
+
+[data-element="copyright-text"] {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.875rem;
+}
+
+/* Background Particles */
+.particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  [data-component="process-grid"] {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  [data-component="service-content"] {
+    grid-template-columns: 1fr;
+  }
+  
+  [data-element="hero-heading"] {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  [data-component="nav-links"] {
+    display: none;
+  }
+  
+  [data-element="mobile-menu-toggle"] {
+    display: block;
+  }
+  
+  [data-component="feature-grid"],
+  [data-component="option-grid"],
+  [data-component="plugin-grid"],
+  [data-component="ai-grid"] {
+    grid-template-columns: 1fr;
+  }
+  
+  [data-component="process-grid"] {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  [data-element="hero-heading"] {
+    font-size: 2.5rem;
+  }
+  
+  [data-component="cta-buttons"] {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  [data-component="process-grid"] {
+    grid-template-columns: 1fr;
+  }
+  
+  [data-element="hero-heading"] {
+    font-size: 2rem;
+  }
+  
+  [data-element="hero-subtext"] {
+    font-size: 1rem;
+  }
+  
+  [data-component="tech-list"] {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+[data-animate="fade-in"] {
+  animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+[data-animate-delay="100"] {
+  animation-delay: 0.1s;
+}
+
+[data-animate-delay="200"] {
+  animation-delay: 0.2s;
+}
+
+[data-animate-delay="300"] {
+  animation-delay: 0.3s;
+}
+
+/* Scroll Reveal Animation */
+.reveal {
+  position: relative;
+  transform: translateY(50px);
+  opacity: 0;
+  transition: all 1s ease;
+}
+
+.reveal.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+    </style>
+</head>
+<body>
+    <nav data-component="main-navigation">
+        <a href="index.html" data-element="brand-mark">TechVibe</a>
+        <div data-component="nav-links">
+            <a href="index.html" data-element="nav-link">Home</a>
+            <a href="about.html" data-element="nav-link">About</a>
+            <a href="service.html" data-element="nav-link" class="is-active">Services</a>
+            <a href="products.html" data-element="nav-link">Products</a>
+            <a href="case-studies.html" data-element="nav-link">Case Studies</a>
+            <a href="contact.html" data-element="nav-link">Contact</a>
+        </div>
+        <div data-element="mobile-menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <section data-section="page-hero" data-animate="fade-in">
+        <div class="floating-circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </div>
+        <h1 data-element="hero-heading">Our Services</h1>
+        <p data-element="hero-subtext">Technology that solves. Systems that scale.</p>
+    </section>
+
+    <section data-section="services-intro">
+        <p data-element="intro-text">Our services are designed to remove bottlenecks, enhance customer experience, and empower brands to scale—without the stress.</p>
+    </section>
+
+    <!-- Web Development Section -->
+    <section data-section="service-category" id="webdev">
+        <div class="particles" id="particles-1"></div>
+        <div data-component="service-container">
+            <div data-element="service-header">
+                <div data-element="service-icon" class="floating">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <h2 data-element="service-title">Website Development</h2>
+                <p data-element="service-subtitle">Your website isn't just a digital address. It's your digital headquarters.</p>
+            </div>
+            
+            <div data-component="service-content">
+                <div data-element="service-description">
+                    <p>We build responsive, lightning-fast, SEO-friendly, and highly scalable websites that feel as good as they look. Whether you need a simple landing page or a complex web application, we've got you covered.</p>
+                    
+                    <div data-component="feature-grid">
+                        <div data-element="feature-card">
+                            <i data-element="feature-icon" class="fas fa-rocket"></i>
+                            <h4 data-element="feature-title">Performance Optimized</h4>
+                            <p data-element="feature-desc">Lightning fast load times with optimized code and assets</p>
+                        </div>
+                        <div data-element="feature-card">
+                            <i data-element="feature-icon" class="fas fa-mobile-alt"></i>
+                            <h4 data-element="feature-title">Mobile First</h4>
+                            <p data-element="feature-desc">Flawless experience on all devices and screen sizes</p>
+                        </div>
+                        <div data-element="feature-card">
+                            <i data-element="feature-icon" class="fas fa-search"></i>
+                            <h4 data-element="feature-title">SEO Ready</h4>
+                            <p data-element="feature-desc">Built with search engine visibility in mind</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div data-element="service-details">
+                    <div data-component="tech-stack">
+                        <h3 data-element="stack-title">Our Tech Stack</h3>
+                        <ul data-component="tech-list">
+                            <li data-element="tech-item">HTML5/CSS3</li>
+                            <li data-element="tech-item">JavaScript (React, Vue, Angular)</li>
+                            <li data-element="tech-item">Node.js, Laravel, Django</li>
+                            <li data-element="tech-item">Next.js, Gatsby</li>
+                            <li data-element="tech-item">WordPress, Craft CMS</li>
+                            <li data-element="tech-item">Headless CMS options</li>
+                        </ul>
+                    </div>
+                    
+                    <div data-element="success-story">
+                        <h3 data-element="story-title">Success Story</h3>
+                        <p data-element="story-text">We helped a law firm revamp their old-school site into a modern, trust-building conversion machine. With enhanced mobile responsiveness, structured schema, and CMS flexibility, the new site saw a <strong>70% increase in inbound leads</strong>.</p>
+                        <a href="case-studies.html" data-element="case-link">View Case Study →</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div data-component="service-cta">
+                <a href="contact.html" data-element="primary-btn">Start Your Project →</a>
+                <a href="#" data-element="secondary-btn">View Portfolio</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- eCommerce Section -->
+    <section data-section="service-category alt-bg" id="ecommerce">
+        <div class="particles" id="particles-2"></div>
+        <div data-component="service-container">
+            <div data-element="service-header">
+                <div data-element="service-icon" class="floating">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <h2 data-element="service-title">eCommerce Development</h2>
+                <p data-element="service-subtitle">Build your storefront like you mean it.</p>
+            </div>
+            
+            <div data-component="service-content">
+                <div data-element="service-description">
+                    <p>We create custom online stores that are not only secure and scalable but strategically optimized for sales. From product presentation to checkout flow, every detail is designed to convert visitors into customers.</p>
+                    
+                    <div data-component="platform-tabs">
+                        <div data-element="platform-tab" class="is-active" data-tab="shopify">Shopify</div>
+                        <div data-element="platform-tab" data-tab="woocommerce">WooCommerce</div>
+                        <div data-element="platform-tab" data-tab="magento">Magento</div>
+                    </div>
+                    
+                    <div data-component="platform-content" class="is-active" id="shopify">
+                        <ul data-component="feature-list">
+                            <li data-element="feature-item">
+                                <i data-element="feature-icon-small" class="fas fa-check"></i>
+                                Headless Shopify stores for maximum flexibility
+                            </li>
+                            <li data-element="feature-item">
+                                <i data-element="feature-icon-small" class="fas fa-check"></i>
+                                Custom Shopify apps for unique functionality
+                            </li>
+                            <li data-element="feature-item">
+                                <i data-element="feature-icon-small" class="fas fa-check"></i>
+                                Optimized checkout flows to reduce abandonment
+                            </li>
+                            <li data-element="feature-item">
+                                <i data-element="feature-icon-small" class="fas fa-check"></i>
+                                Theme customization that reflects your brand
+                            </li>
+                            <li data-element="feature-item">
+                                <i data-element="feature-icon-small" class="fas fa-check"></i>
+                                App integration and performance optimization
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div data-component="platform-content" id="woocommerce">
+                        <ul data-component="feature-list">
+                            <li data-element="feature-item">
+                                <i data-element="feature-icon-small" class="fas fa-check"></i>
+                                Custom WooCommerce theme development
+                            </li>
+                            <li data-element="feature-item">
+                                <i data-element="feature-icon-small" class="fas fa-check"></i>
+                                Subscription models and membership sites
+                            </li>
+                            <li data-element="feature-item">
+                                <i data-element="feature-icon-small" class="fas fa-check"></i>
+                                Plugin integrations and customizations
+                            </li>
+                            <li data-element="feature-item">
+                                <i data-element="feature-icon-small" class="fas fa-check"></i>
+                                POS systems for omnichannel retail
+                            </li>
+                            <li data-element="feature-item">
+                                <i data-element="feature-icon-small" class="fas fa-check"></i>
+                                Performance optimization for large catalogs
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div data-component="platform-content" id="magento">
+                        <ul data-component="feature-list">
+                            <li data-element="feature-item">
+                                <i data-element="feature-icon-small" class="fas fa-check"></i>
+                                Custom Magento modules for unique needs
+                            </li>
+                            <li data-element="feature-item">
+                                <i data-element="feature-icon-small" class="fas fa-check"></i>
+                                ERP/CRM integrations for seamless operations
+                            </li>
+                            <li data-element="feature-item">
+                                <i data-element="feature-icon-small" class="fas fa-check"></i>
+                                Internationalization for global stores
+                            </li>
+                            <li data-element="feature-item">
+                                <i data-element="feature-icon-small" class="fas fa-check"></i>
+                                Performance optimization for enterprise
+                            </li>
+                            <li data-element="feature-item">
+                                <i data-element="feature-icon-small" class="fas fa-check"></i>
+                                Security hardening and PCI compliance
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div data-element="service-details">
+                    <div data-element="success-story">
+                        <h3 data-element="story-title">Success Story</h3>
+                        <p data-element="story-text">A wellness brand needed to simplify subscriptions and automate fulfillment. We rebuilt the entire Shopify experience, added a smart upsell plugin, and automated email triggers via Klaviyo. The result? <strong>Revenue grew 300% in 4 months</strong>.</p>
+                        <a href="case-studies.html" data-element="case-link">View Case Study →</a>
+                    </div>
+                    
+                    <div data-component="feature-grid">
+                        <div data-element="feature-card">
+                            <div data-element="feature-title">2.3x</div>
+                            <p data-element="feature-desc">Average conversion increase</p>
+                        </div>
+                        <div data-element="feature-card">
+                            <div data-element="feature-title">40%</div>
+                            <p data-element="feature-desc">Faster page loads</p>
+                        </div>
+                        <div data-element="feature-card">
+                            <div data-element="feature-title">100%</div>
+                            <p data-element="feature-desc">PCI compliant</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div data-component="service-cta">
+                <a href="contact.html" data-element="primary-btn">Launch Your Store →</a>
+                <a href="#" data-element="secondary-btn">eCommerce Guide <i class="fas fa-download"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile App Section -->
+    <section data-section="service-category" id="mobile">
+        <div class="particles" id="particles-3"></div>
+        <div data-component="service-container">
+            <div data-element="service-header">
+                <div data-element="service-icon" class="floating">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h2 data-element="service-title">Mobile App Development</h2>
+                <p data-element="service-subtitle">We turn napkin sketches into fully functioning apps.</p>
+            </div>
+            
+            <div data-component="service-content">
+                <div data-element="service-description">
+                    <p>Our process combines user-first design with rock-solid code so your app doesn't just launch—it thrives. We build for both iOS and Android with a focus on performance and user experience.</p>
+                    
+                    <div data-component="option-grid">
+                        <div data-element="option-card" class="is-active" data-option="native">
+                            <i data-element="option-icon" class="fab fa-apple"></i>
+                            <h4 data-element="option-title">Native Apps</h4>
+                            <p data-element="option-desc">Maximum performance for iOS & Android</p>
+                        </div>
+                        <div data-element="option-card" data-option="cross">
+                            <i data-element="option-icon" class="fas fa-mobile-screen"></i>
+                            <h4 data-element="option-title">Cross-Platform</h4>
+                            <p data-element="option-desc">Single codebase for both platforms</p>
+                        </div>
+                        <div data-element="option-card" data-option="pwa">
+                            <i data-element="option-icon" class="fab fa-google"></i>
+                            <h4 data-element="option-title">Progressive Web Apps</h4>
+                            <p data-element="option-desc">App-like web experiences</p>
+                        </div>
+                    </div>
+                    
+                    <div data-component="platform-content" class="is-active" id="native">
+                        <ul data-component="feature-list">
+                            <li data-element="feature-item">
+                                <i data-element="feature-icon-small" class="fas fa-check"></i>
+                                Swift for iOS, Kotlin for Android
+                            </li>
+                            <li data-element="feature-item">
+                                <i data-element="feature-icon-small" class="fas fa-check"></i>
+                                Full access to device capabilities
+                            </li>
+                            <li data-element="feature-item">
+                                <i data-element="feature-icon-small" class="fas fa-check"></i>
+                                Optimized performance
+                            </li>
+                            <li data-element="feature-item">
+                                <i data-element="feature-icon-small" class="fas fa-check"></i>
+                                App Store deployment
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div data-component="platform-content" id="cross">
+                        <ul data-component="feature-list">
+                            <li data-element="feature-item">
+                                <i data-element="feature-icon-small" class="fas fa-check"></i>
+                                React Native or Flutter
+                            </li>
+                            <li data-element="feature-item">
+                                <i data-element="feature-icon-small" class="fas fa-check"></i>
+                                80% code reuse across platforms
+                            </li>
+                            <li data-element="feature-item">
+                                <i data-element="feature-icon-small" class="fas fa-check"></i>
+                                Faster development time
+                            </li>
+                            <li data-element="feature-item">
+                                <i data-element="feature-icon-small" class="fas fa-check"></i>
+                                Native-like performance
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div data-component="platform-content" id="pwa">
+                        <ul data-component="feature-list">
+                            <li data-element="feature-item">
+                                <i data-element="feature-icon-small" class="fas fa-check"></i>
+                                Installable from browser
+                            </li>
+                            <li data-element="feature-item">
+                                <i data-element="feature-icon-small" class="fas fa-check"></i>
+                                No app store approval needed
+                            </li>
+                            <li data-element="feature-item">
+                                <i data-element="feature-icon-small" class="fas fa-check"></i>
+                                Automatic updates
+                            </li>
+                            <li data-element="feature-item">
+                                <i data-element="feature-icon-small" class="fas fa-check"></i>
+                                Lower development cost
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div data-element="service-details">
+                    <div data-component="tech-stack">
+                        <h3 data-element="stack-title">Our Mobile Stack</h3>
+                        <ul data-component="tech-list">
+                            <li data-element="tech-item">iOS: Swift, SwiftUI</li>
+                            <li data-element="tech-item">Android: Kotlin, Jetpack Compose</li>
+                            <li data-element="tech-item">Cross-platform: React Native, Flutter</li>
+                            <li data-element="tech-item">Backend: Node.js, Firebase, AWS</li>
+                            <li data-element="tech-item">APIs: REST, GraphQL, WebSockets</li>
+                        </ul>
+                    </div>
+                    
+                    <div data-element="success-story">
+                        <h3 data-element="story-title">Success Story</h3>
+                        <p data-element="story-text">An education startup needed a mobile platform for live tutoring. We developed a real-time, cross-platform app with whiteboard functionality, messaging, and session history. <strong>Within 6 months, their user base grew from 500 to 12,000 active users</strong>.</p>
+                        <a href="case-studies.html" data-element="case-link">View Case Study →</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div data-component="service-cta">
+                <a href="contact.html" data-element="primary-btn">Build Your App →</a>
+                <a href="#" data-element="secondary-btn">View App Portfolio</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plugin Development Section -->
+    <section data-section="service-category alt-bg" id="plugins">
+        <div class="particles" id="particles-4"></div>
+        <div data-component="service-container">
+            <div data-element="service-header">
+                <div data-element="service-icon" class="floating">
+                    <i class="fas fa-puzzle-piece"></i>
+                </div>
+                <h2 data-element="service-title">Plugin & Shopify App Development</h2>
+                <p data-element="service-subtitle">We build powerful micro-tools that fill the gaps your eCommerce stack didn't even know it had.</p>
+            </div>
+            
+            <div data-component="service-content">
+                <div data-element="service-description">
+                    <p>Off-the-shelf solutions often come with limitations. Our custom plugins and apps extend your platform's capabilities to match your exact business needs.</p>
+                    
+                    <div data-component="plugin-grid">
+                        <div data-element="plugin-card">
+                            <h4 data-element="plugin-title">Shopify Apps</h4>
+                            <ul data-component="plugin-list">
+                                <li data-element="plugin-item">Private custom apps</li>
+                                <li data-element="plugin-item">Public apps for App Store</li>
+                                <li data-element="plugin-item">Embedded app UI</li>
+                                <li data-element="plugin-item">Checkout extensions</li>
+                            </ul>
+                        </div>
+                        <div data-element="plugin-card">
+                            <h4 data-element="plugin-title">WooCommerce Plugins</h4>
+                            <ul data-component="plugin-list">
+                                <li data-element="plugin-item">Payment gateways</li>
+                                <li data-element="plugin-item">Shipping calculators</li>
+                                <li data-element="plugin-item">Product customization</li>
+                                <li data-element="plugin-item">Subscription management</li>
+                            </ul>
+                        </div>
+                        <div data-element="plugin-card">
+                            <h4 data-element="plugin-title">Custom Solutions</h4>
+                            <ul data-component="plugin-list">
+                                <li data-element="plugin-item">API integrations</li>
+                                <li data-element="plugin-item">Data migration tools</li>
+                                <li data-element="plugin-item">Reporting dashboards</li>
+                                <li data-element="plugin-item">Workflow automation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div data-element="service-details">
+                    <div data-element="success-story">
+                        <h3 data-element="story-title">Success Story</h3>
+                        <p data-element="story-text">A print-on-demand shop needed a custom price calculator and bulk order plugin. We created both in 2 weeks, integrated with their existing Shopify stack, and <strong>doubled their average order volume</strong>.</p>
+                        <a href="case-studies.html" data-element="case-link">View Case Study →</a>
+                    </div>
+                    
+                    <div data-component="development-process">
+                        <h3 data-element="stack-title">Our Plugin Process</h3>
+                        <ol data-component="process-steps">
+                            <li data-element="process-step"><span data-element="step-number">1</span> Requirement Analysis</li>
+                            <li data-element="process-step"><span data-element="step-number">2</span> Technical Specification</li>
+                            <li data-element="process-step"><span data-element="step-number">3</span> Rapid Prototyping</li>
+                            <li data-element="process-step"><span data-element="step-number">4</span> Development & Testing</li>
+                            <li data-element="process-step"><span data-element="step-number">5</span> Deployment & Support</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            
+            <div data-component="service-cta">
+                <a href="contact.html" data-element="primary-btn">Get Custom Features →</a>
+                <a href="#" data-element="secondary-btn">View Plugin Examples</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Solutions Section -->
+    <section data-section="service-category" id="ai">
+        <div class="particles" id="particles-5"></div>
+        <div data-component="service-container">
+            <div data-element="service-header">
+                <div data-element="service-icon" class="floating">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h2 data-element="service-title">AI & Automation Solutions</h2>
+                <p data-element="service-subtitle">We don't just build tools—we build ecosystems that make your business smarter.</p>
+            </div>
+            
+            <div data-component="service-content">
+                <div data-element="service-description">
+                    <p>Our AI-powered automation and tech stack reduces manual intervention and supercharges efficiency across your operations.</p>
+                    
+                    <div data-component="ai-grid">
+                        <div data-element="ai-card">
+                            <i data-element="ai-icon" class="fas fa-comments"></i>
+                            <h4 data-element="ai-title">AI Chatbots</h4>
+                            <p data-element="ai-desc">24/7 customer support and sales assistance</p>
+                        </div>
+                        <div data-element="ai-card">
+                            <i data-element="ai-icon" class="fas fa-chart-bar"></i>
+                            <h4 data-element="ai-title">Data Analytics</h4>
+                            <p data-element="ai-desc">Predictive insights and recommendations</p>
+                        </div>
+                        <div data-element="ai-card">
+                            <i data-element="ai-icon" class="fas fa-cogs"></i>
+                            <h4 data-element="ai-title">Process Automation</h4>
+                            <p data-element="ai-desc">Streamline repetitive tasks and workflows</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div data-element="service-details">
+                    <div data-component="tech-stack">
+                        <h3 data-element="stack-title">Our AI Toolkit</h3>
+                        <ul data-component="tech-list">
+                            <li data-element="tech-item">Natural Language Processing (NLP)</li>
+                            <li data-element="tech-item">Machine Learning models</li>
+                            <li data-element="tech-item">Predictive Analytics</li>
+                            <li data-element="tech-item">Computer Vision</li>
+                            <li data-element="tech-item">Recommendation Engines</li>
+                        </ul>
+                    </div>
+                    
+                    <div data-element="success-story">
+                        <h3 data-element="story-title">Success Stories</h3>
+                        <ul data-component="case-list">
+                            <li data-element="case-item">A beauty brand <strong>increased cart value by 34%</strong> with an AI assistant guiding customers through purchase decisions.</li>
+                            <li data-element="case-item">A logistics firm automated their quote system and <strong>saved 60 man-hours per month</strong>.</li>
+                            <li data-element="case-item">An eCommerce store reduced returns by <strong>28%</strong> with AI-powered size recommendations.</li>
+                        </ul>
+                        <a href="case-studies.html" data-element="case-link">View All AI Case Studies →</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div data-component="service-cta">
+                <a href="contact.html" data-element="primary-btn">Automate Your Business →</a>
+                <a href="#" data-element="secondary-btn">AI Readiness Assessment</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section data-section="service-process">
+        <div class="particles" id="particles-6"></div>
+        <h2 data-element="section-title">Our Development Process</h2>
+        
+        <div data-component="process-grid">
+            <div data-element="process-card">
+                <div data-element="process-number">1</div>
+                <h3 data-element="process-title">Discovery</h3>
+                <p data-element="process-desc">We learn about your business, goals, and challenges to define project requirements.</p>
+            </div>
+            <div data-element="process-card">
+                <div data-element="process-number">2</div>
+                <h3 data-element="process-title">Planning</h3>
+                <p data-element="process-desc">We create a detailed project plan with milestones, deliverables, and timelines.</p>
+            </div>
+            <div data-element="process-card">
+                <div data-element="process-number">3</div>
+                <h3 data-element="process-title">Design</h3>
+                <p data-element="process-desc">We craft user experiences and interfaces that align with your brand and goals.</p>
+            </div>
+            <div data-element="process-card">
+                <div data-element="process-number">4</div>
+                <h3 data-element="process-title">Development</h3>
+                <p data-element="process-desc">We build your solution with clean, maintainable code following best practices.</p>
+            </div>
+            <div data-element="process-card">
+                <div data-element="process-number">5</div>
+                <h3 data-element="process-title">Testing</h3>
+                <p data-element="process-desc">We rigorously test all functionality across devices and scenarios.</p>
+            </div>
+            <div data-element="process-card">
+                <div data-element="process-number">6</div>
+                <h3 data-element="process-title">Launch</h3>
+                <p data-element="process-desc">We deploy your solution and provide training and documentation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section data-section="action-prompt">
+        <div class="floating-circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </div>
+        <div data-element="cta-content">
+            <h2 data-element="cta-heading">Ready to Transform Your Business?</h2>
+            <p data-element="cta-text">Let's discuss how we can help you achieve your goals with technology that works.</p>
+            <div data-component="cta-buttons">
+                <a href="contact.html" data-element="primary-btn">Get Started →</a>
+                <a href="contact.html" data-element="secondary-btn">Book a Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer data-component="page-footer">
+        <div data-element="footer-content">
+            <div data-component="footer-links">
+                <a href="privacy.html" data-element="footer-link">Privacy</a>
+                <a href="terms.html" data-element="footer-link">Terms</a>
+                <a href="careers.html" data-element="footer-link">Careers</a>
+                <a href="blog.html" data-element="footer-link">Blog</a>
+            </div>
+            <p data-element="copyright-text">© 2023 TechVibe. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    // Mobile menu toggle
+    const mobileToggle = document.querySelector('[data-element="mobile-menu-toggle"]');
+    const navLinks = document.querySelector('[data-component="nav-links"]');
+    
+    if (mobileToggle && navLinks) {
+        mobileToggle.addEventListener('click', function() {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+    }
+
+    // Platform tabs functionality
+    const platformTabs = document.querySelectorAll('[data-element="platform-tab"]');
+    platformTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            const tabId = this.getAttribute('data-tab');
+            
+            // Remove active class from all tabs
+            platformTabs.forEach(t => t.classList.remove('is-active'));
+            
+            // Add active class to clicked tab
+            this.classList.add('is-active');
+            
+            // Hide all content
+            document.querySelectorAll('[data-component="platform-content"]').forEach(content => {
+                content.classList.remove('is-active');
+            });
+            
+            // Show selected content
+            document.getElementById(tabId).classList.add('is-active');
+        });
+    });
+
+    // Development option cards functionality
+    const optionCards = document.querySelectorAll('[data-element="option-card"]');
+    optionCards.forEach(card => {
+        card.addEventListener('click', function() {
+            const optionId = this.getAttribute('data-option');
+            
+            // Remove active class from all cards
+            optionCards.forEach(c => c.classList.remove('is-active'));
+            
+            // Add active class to clicked card
+            this.classList.add('is-active');
+            
+            // Hide all content
+            document.querySelectorAll('[data-component="platform-content"]').forEach(content => {
+                content.classList.remove('is-active');
+            });
+            
+            // Show selected content
+            document.getElementById(optionId).classList.add('is-active');
+        });
+    });
+
+    // Create particles for parallax effect
+    function createParticles(containerId, count = 30) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+        
+        for (let i = 0; i < count; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            
+            // Random size between 2px and 6px
+            const size = Math.random() * 4 + 2;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            
+            // Random position
+            particle.style.left = `${Math.random() * 100}%`;
+            particle.style.top = `${Math.random() * 100}%`;
+            
+            // Random opacity
+            particle.style.opacity = Math.random() * 0.5 + 0.1;
+            
+            // Random animation duration
+            const duration = Math.random() * 20 + 10;
+            particle.style.animation = `float ${duration}s linear infinite`;
+            
+            // Random delay
+            particle.style.animationDelay = `${Math.random() * 10}s`;
+            
+            container.appendChild(particle);
+        }
+    }
+    
+    // Initialize particles for each section
+    createParticles('particles-1');
+    createParticles('particles-2');
+    createParticles('particles-3');
+    createParticles('particles-4');
+    createParticles('particles-5');
+    createParticles('particles-6');
+
+    // Parallax effect for hero section
+    const heroSection = document.querySelector('[data-section="page-hero"]');
+    if (heroSection) {
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.pageYOffset;
+            heroSection.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
+        });
+    }
+
+    // 3D tilt effect for cards
+    const cards = document.querySelectorAll('[data-element="feature-card"], [data-element="process-card"], [data-element="ai-card"], [data-element="plugin-card"], [data-element="option-card"]');
+    
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const angleX = (y - centerY) / 20;
+            const angleY = (centerX - x) / 20;
+            
+            card.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) translateZ(20px)`;
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+        });
+    });
+
+    // Scroll reveal animation
+    const revealElements = document.querySelectorAll('.reveal');
+    
+    function checkReveal() {
+        revealElements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            
+            if (elementTop < windowHeight - 100) {
+                element.classList.add('active');
+            }
+        });
+    }
+    
+    // Initial check
+    checkReveal();
+    
+    // Check on scroll
+    window.addEventListener('scroll', checkReveal);
+
+    // Animate elements when they come into view
+    const animateOnScroll = function() {
+        const elements = document.querySelectorAll('[data-animate="fade-in"]');
+        
+        elements.forEach(element => {
+            const elementPosition = element.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            
+            if (elementPosition < windowHeight - 100) {
+                const delay = element.getAttribute('data-animate-delay') || '0';
+                element.style.animationDelay = `${delay}ms`;
+                element.style.opacity = 1;
+                element.style.transform = 'translateY(0)';
+            }
+        });
+    };
+
+    // Initial check
+    animateOnScroll();
+    
+    // Check on scroll
+    window.addEventListener('scroll', animateOnScroll);
+});
+    </script>
+</body>
+</html>

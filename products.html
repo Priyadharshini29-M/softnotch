@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Products | Tech That Works, With a Vibe</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Base Styles */
+        :root {
+            --primary: #07DB9C;
+            --primary-dark: #06C78A;
+            --secondary: #0E59CB;
+            --dark: #202040;
+            --text: #333;
+            --text-light: #666;
+            --light: #F8FAFF;
+            --white: #FFFFFF;
+            --gray: #E5E7EB;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.5rem; }
+        h4 { font-size: 1.25rem; }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(7, 219, 156, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(7, 219, 156, 0.4);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* Navigation */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            position: relative;
+            padding: 5px 0;
+            font-weight: 500;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Header Section */
+        .page-header {
+            text-align: center;
+            padding: 100px 20px;
+            background: linear-gradient(135deg, var(--dark), var(--secondary));
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--white);
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-header p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.9);
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+            opacity: 0.4;
+            z-index: 1;
+        }
+
+        /* Products Intro */
+        .products-intro {
+            padding: 60px 0;
+            text-align: center;
+            background-color: var(--white);
+        }
+
+        .products-intro p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* Product Showcase */
+        .product-showcase {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .product-showcase.alt {
+            background-color: var(--white);
+        }
+
+        .product-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .product-image {
+            flex: 1;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .product-showcase.alt .product-container {
+            flex-direction: row-reverse;
+        }
+
+        .product-image:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .product-image:hover img {
+            transform: scale(1.02);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .product-content {
+            flex: 1;
+        }
+
+        .product-meta {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+
+        .product-category {
+            background-color: var(--light);
+            color: var(--secondary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .product-rating {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .product-rating i {
+            color: #FFC107;
+        }
+
+        .product-features {
+            margin: 30px 0;
+        }
+
+        .product-features h3 {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .product-features ul {
+            list-style: none;
+        }
+
+        .product-features li {
+            margin-bottom: 10px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .product-features li i {
+            position: absolute;
+            left: 0;
+            top: 4px;
+            color: var(--primary);
+        }
+
+        /* Product Benefits */
+        .product-benefits {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .benefit-card {
+            background-color: var(--light);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .benefit-card i {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .benefit-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .benefit-card p {
+            font-size: 0.9rem;
+        }
+
+        /* Product Tabs */
+        .product-tabs {
+            margin: 30px 0;
+        }
+
+        .tab-header {
+            display: flex;
+            border-bottom: 1px solid var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .tab-btn {
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: 500;
+            position: relative;
+            color: var(--text-light);
+            transition: var(--transition);
+        }
+
+        .tab-btn::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .tab-btn:hover,
+        .tab-btn.active {
+            color: var(--dark);
+        }
+
+        .tab-btn.active::after {
+            width: 100%;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 15px 0;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Testimonial */
+        .product-testimonial {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: var(--light);
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .product-testimonial::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--primary);
+            opacity: 0.2;
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .product-testimonial blockquote {
+            font-style: italic;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .product-testimonial cite {
+            display: block;
+            font-style: normal;
+            font-weight: 600;
+            text-align: right;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Product CTA */
+        .product-cta {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        /* Comparison Table */
+        .product-comparison {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .comparison-table {
+            overflow-x: auto;
+            margin: 0 auto;
+            max-width: 1000px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--gray);
+        }
+
+        th {
+            background-color: var(--light);
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        tr:hover td {
+            background-color: rgba(7, 219, 156, 0.05);
+        }
+
+        /* FAQ Section */
+        .product-faq {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+
+        .faq-item {
+            max-width: 800px;
+            margin: 0 auto 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            background-color: var(--white);
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background-color: rgba(7, 219, 156, 0.05);
+        }
+
+        .faq-question h3 {
+            margin-bottom: 0;
+            font-size: 1.1rem;
+        }
+
+        .faq-question i {
+            transition: var(--transition);
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 20px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding: 0 20px 20px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--dark), var(--secondary));
+            color: var(--white);
+        }
+
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            color: var(--white);
+            margin-bottom: 15px;
+        }
+
+        .cta-content p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .product-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .product-showcase.alt .product-container {
+                flex-direction: column;
+            }
+
+            .product-image,
+            .product-content {
+                width: 100%;
+            }
+
+            .product-benefits {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+
+            .product-cta,
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 15px 20px;
+            }
+
+            .page-header {
+                padding: 70px 20px;
+            }
+
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .page-header p {
+                font-size: 1rem;
+            }
+
+            .product-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .tab-header {
+                flex-wrap: wrap;
+            }
+
+            .tab-btn {
+                padding: 8px 12px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">TechVibe</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="service.html">Services</a>
+            <a href="products.html" class="active">Products</a>
+            <a href="case-studies.html">Case Studies</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <h1>From Code to Creation</h1>
+        <p>Our homegrown tech products designed to fill market gaps</p>
+    </section>
+
+    <section class="products-intro">
+        <div class="container">
+            <p>We roll out our own products, built to fill the gaps we saw in the market. All our tools are scalable, flexible, and laser-focused on growth.</p>
+        </div>
+    </section>
+
+    <section class="product-showcase" id="chatbots">
+        <div class="product-container">
+            <div class="product-image">
+                <div class="product-badge">Most Popular</div>
+                <img src="https://images.unsplash.com/photo-1655720828012-585b4245fb6f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="AI Chatbot Interface">
+            </div>
+            <div class="product-content">
+                <h2>AI Chatbots</h2>
+                <div class="product-meta">
+                    <span class="product-category">AI Automation</span>
+                    <span class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        4.7/5
+                    </span>
+                </div>
+                <p class="product-description">Our AI-powered chatbots are designed to support customer experience across multiple channels. From 24/7 real-time support to product recommendations, our bots adapt to your tone and scale with your business.</p>
+                
+                <div class="product-features">
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Multilingual, multi-platform (Web, WhatsApp, Messenger)</li>
+                        <li><i class="fas fa-check-circle"></i> Trained on your knowledge base for contextual replies</li>
+                        <li><i class="fas fa-check-circle"></i> Converts better than static CTAs or forms</li>
+                        <li><i class="fas fa-check-circle"></i> Seamless handoff to human agents when needed</li>
+                        <li><i class="fas fa-check-circle"></i> Continuous learning from customer interactions</li>
+                    </ul>
+                </div>
+                
+                <div class="product-benefits">
+                    <div class="benefit-card">
+                        <i class="fas fa-bolt"></i>
+                        <h4>40% Faster</h4>
+                        <p>Response times compared to human agents</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h4>34% Higher</h4>
+                        <p>Cart values with product recommendations</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-clock"></i>
+                        <h4>24/7</h4>
+                        <p>Availability for customer inquiries</p>
+                    </div>
+                </div>
+                
+                <div class="product-cta">
+                    <a href="contact.html" class="btn btn-primary">Get a Demo →</a>
+                    <a href="#" class="btn btn-outline">Case Studies <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="product-showcase alt" id="analytics">
+        <div class="product-container">
+            <div class="product-content">
+                <h2>Meta Campaign Intelligence Dashboard</h2>
+                <div class="product-meta">
+                    <span class="product-category">Marketing Analytics</span>
+                    <span class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        5/5
+                    </span>
+                </div>
+                <p class="product-description">Make sense of your media spend. Our dashboard unifies insights from Meta and Google Ads, giving marketers deep clarity on creative performance, audience behavior, and return on ad spend.</p>
+                
+                <div class="product-features">
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Unified dashboard for Meta and Google Ads</li>
+                        <li><i class="fas fa-check-circle"></i> Real-time insights, creative performance analysis</li>
+                        <li><i class="fas fa-check-circle"></i> Predictive budgeting and automated reporting</li>
+                        <li><i class="fas fa-check-circle"></i> Customizable KPIs and performance alerts</li>
+                        <li><i class="fas fa-check-circle"></i> Competitor benchmarking (coming soon)</li>
+                    </ul>
+                </div>
+                
+                <div class="product-testimonial">
+                    <blockquote>
+                        "The Meta Campaign Dashboard helped us identify underperforming ad sets and reallocate budget, resulting in a 22% decrease in CPA within the first month."
+                        <cite>- Marketing Director, Ecommerce Brand</cite>
+                    </blockquote>
+                </div>
+            </div>
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Analytics Dashboard">
+            </div>
+        </div>
+    </section>
+
+    <section class="product-showcase" id="shopify">
+        <div class="product-container">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Shopify Store">
+            </div>
+            <div class="product-content">
+                <h2>Shopify Apps</h2>
+                <div class="product-meta">
+                    <span class="product-category">eCommerce Tools</span>
+                    <span class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        4.2/5
+                    </span>
+                </div>
+                <p class="product-description">Custom-built to plug right into your Shopify store and enhance it from within. Our apps drive conversions, engagement, and lifetime value.</p>
+                
+                <div class="product-tabs">
+                    <div class="tab-header">
+                        <div class="tab-btn active" data-tab="cart">Cart Saver</div>
+                        <div class="tab-btn" data-tab="upsell">Smart Upsell</div>
+                        <div class="tab-btn" data-tab="segments">Customer Segments</div>
+                    </div>
+                    
+                    <div class="tab-content active" id="cart">
+                        <h4>Abandoned Cart Savior with Gamified Discounting</h4>
+                        <ul>
+                            <li>Recover lost sales with timed discount offers</li>
+                            <li>Gamified spin-to-win discount wheel</li>
+                            <li>Customizable discount rules and expiration</li>
+                            <li>Integrated with all major email platforms</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tab-content" id="upsell">
+                        <h4>Smart Upsell/Cross-sell Post-purchase Flows</h4>
+                        <ul>
+                            <li>AI-powered product recommendations</li>
+                            <li>One-click add to order functionality</li>
+                            <li>Customizable timing and triggers</li>
+                            <li>Performance analytics dashboard</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tab-content" id="segments">
+                        <h4>Customer Segmentation & Product Recommendations</h4>
+                        <ul>
+                            <li>RFM (Recency, Frequency, Monetary) analysis</li>
+                            <li>Behavior-based customer segments</li>
+                            <li>Automated product recommendation engine</li>
+                            <li>Integration with email/SMS marketing</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="product-cta">
+                    <a href="contact.html" class="btn btn-primary">View in App Store →</a>
+                    <a href="#" class="btn btn-outline">Documentation <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="product-comparison">
+        <div class="container">
+            <h2 class="section-title">Compare Products</h2>
+            
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>AI Chatbot</th>
+                            <th>Meta Dashboard</th>
+                            <th>Shopify Apps</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Setup Time</td>
+                            <td>2-3 days</td>
+                            <td>Instant</td>
+                            <td>15 minutes</td>
+                        </tr>
+                        <tr>
+                            <td>Integrations</td>
+                            <td>Website, WhatsApp, Messenger</td>
+                            <td>Meta, Google Ads</td>
+                            <td>Shopify only</td>
+                        </tr>
+                        <tr>
+                            <td>Pricing Model</td>
+                            <td>Monthly subscription</td>
+                            <td>Pay-per-use</td>
+                            <td>One-time purchase</td>
+                        </tr>
+                        <tr>
+                            <td>Support Included</td>
+                            <td>24/7 Priority</td>
+                            <td>Email only</td>
+                            <td>Community forum</td>
+                        </tr>
+                        <tr>
+                            <td>Best For</td>
+                            <td>Customer service automation</td>
+                            <td>Marketing teams</td>
+                            <td>eCommerce stores</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="product-faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Do you offer free trials for your products?</h3>
+                    <i class="fas fa-plus"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! We offer 14-day free trials for all our products with full functionality. No credit card required to start your trial.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Can I use multiple products together?</h3>
+                    <i class="fas fa-plus"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Absolutely. Our products are designed to work together seamlessly. For example, you can connect the AI Chatbot with Shopify Apps to provide personalized product recommendations.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>What kind of support do you provide?</h3>
+                    <i class="fas fa-plus"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>We offer different support tiers: email support for all customers, live chat for business plans, and dedicated account managers for enterprise customers.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How often do you update your products?</h3>
+                    <i class="fas fa-plus"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>We release minor updates weekly and major feature updates quarterly. All updates are included in your subscription at no additional cost.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Boost Your Business?</h2>
+                <p>Try our products risk-free for 14 days or schedule a personalized demo.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary">Get Started Now →</a>
+                    <a href="contact.html" class="btn btn-outline">Book a Demo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <!-- Footer content from index.html -->
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Tab Functionality
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const tabId = this.getAttribute('data-tab');
+                const tabContainer = this.closest('.product-tabs');
+                
+                // Remove active class from all buttons and content
+                tabContainer.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                tabContainer.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding content
+                this.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // FAQ Accordion
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', function() {
+                const faqItem = this.closest('.faq-item');
+                const answer = faqItem.querySelector('.faq-answer');
+                
+                // Close all other FAQs
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (item !== faqItem) {
+                        item.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current FAQ
+                faqItem.classList.toggle('active');
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Animation on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.product-showcase, .section-title');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementPosition < windowHeight - 100) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        // Set initial state for animation
+        document.querySelectorAll('.product-showcase, .section-title').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        });
+
+        // Run on load and scroll
+        window.addEventListener('load', animateOnScroll);
+        window.addEventListener('scroll', animateOnScroll);
+    </script>
+</body>
+</html>
